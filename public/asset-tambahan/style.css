@@ -5,3 +5,81 @@
     margin-bottom: 15px;
     padding: 10px;
 }
+
+.main-sidebar {
+    background-color:cornflowerblue;
+}
+
+/* sidebar kiri style */
+.brand-link span{
+    color: black;
+    font-weight: 700;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.sik-detail a {
+    font-weight: 600;
+    font-family: "Sofia", sans-serif;
+    font-size: 18px;
+    text-shadow: 3px 3px 3px #ababab;
+}
+
+.nav-treeview li a {
+    color: black;
+}
+
+.nav-treeview li a:hover{
+    color: wheat;
+    transition-delay: 0.1ss;
+    opacity: 0.7;
+}
+
+.nav-treeview {
+    margin-top: 25px;
+}
+.side a {
+    color: black;
+}
+
+.master-data-side {
+    padding: 10px;
+    margin: 10px;
+}
+/* cut sidebar kiri style */
+
+
+/* sidebar atas style */
+.main-header ul li a {
+    color: black;
+}
+
+.navigasi-atas {
+    background-color:cornflowerblue;
+    width: 100%;
+    justify-content:space-between;
+    /* width: auto; */
+}
+.navigasi-atas li {
+    list-style: none;
+}
+
+.nav-atas-side-kanan {
+    display: flex;
+    flex-direction: row;
+}
+.main-header {
+    background-color: cornflowerblue ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* cut main header style */
+
+
+/* start footer style */
+.main-footer {
+    background-color:cornflowerblue ;
+    color: white;
+}
+
+
+/* end footer style */
