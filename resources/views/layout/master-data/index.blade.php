@@ -10,19 +10,32 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css/')}}">
-
-  <!-- bootstrap 5.0 -->
-  <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.css/')}}">
-
-
+  <!-- Ionicons -->
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- JQVMap -->
   <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+
+    <!-- bootstrap 5.0 -->
+    <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.min.css/')}}">
+  
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <!-- asset-tambahan -->
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+
 
   <!-- Navbar -->
   @include('layout/navbar-atas')
@@ -33,13 +46,14 @@
 <!-- konten sidebar kiri  -->
 @include('layout/sidebar-kiri')
 
-
-  <!-- Content Wrapper. Contains page content -->
   <!-- content dashboard -->
-  @include('layout/konten-dashboard')
+
+<!-- master data menu -->
+
+@include('layout/master-data/konten-master-data')
 
 
-  <!-- /.content-wrapper -->
+
 @include('layout/footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -82,14 +96,11 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
-<script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
-
-
 
 <!-- fontawesome -->
 <script src="{{asset('assets/plugins/fontawesome-free/js/all.min.js')}}"></script>
 
-
+<script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
 <!-- Your existing scripts are above this line -->
 
 

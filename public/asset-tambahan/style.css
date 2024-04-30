@@ -7,7 +7,8 @@
 }
 
 .main-sidebar {
-    background-color:cornflowerblue;
+    /* background-color:rgb(32, 32, 119); */
+    background-image: linear-gradient(to bottom, #4682B4, #00FFFF, #00FA9A);
 }
 
 /* sidebar kiri style */
@@ -29,7 +30,7 @@
 }
 
 .nav-treeview li a:hover{
-    color: wheat;
+    color: rgb(19, 13, 112);
     transition-delay: 0.1ss;
     opacity: 0.7;
 }
@@ -45,6 +46,10 @@
     padding: 10px;
     margin: 10px;
 }
+
+.nav-treeview .nav-item a {
+    background-color: blue;
+}
 /* cut sidebar kiri style */
 
 
@@ -54,7 +59,6 @@
 }
 
 .navigasi-atas {
-    background-color:cornflowerblue;
     width: 100%;
     justify-content:space-between;
     /* width: auto; */
@@ -68,7 +72,6 @@
     flex-direction: row;
 }
 .main-header {
-    background-color: cornflowerblue ;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -77,8 +80,7 @@
 
 /* start footer style */
 .main-footer {
-    background-color:cornflowerblue ;
-    color: white;
+    color: blue;
 }
 
 
