@@ -1,0 +1,8 @@
+.card-body .navbar .container-fluid .collapse ul li a {
+    color: blue;
+} 
+.card-body .navbar .container-fluid .collapse ul li a:hover {
+    color: green;
+    transform: rotate(4deg);
+    transition: 0.4s;
+} 

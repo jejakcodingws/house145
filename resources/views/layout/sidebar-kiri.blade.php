@@ -46,8 +46,8 @@
             <hr style="width: 98%;">
               <li class="nav-item">
                 <a class="master-data-side nav-link {{(Request::segment(2) == 'master-menu') ? 'active' : '' }}" href="{{url('cafe145/master-menu')}}" >
-                <i class="fa-solid fa-mug-saucer"></i>
-                  Cafe <span  style="color:goldenrod; font-weight:500; font-size:20px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">145</span>
+                <i class="fa-solid fa-file-invoice fa-lg"></i>
+                  Invoice <span  style="color:goldenrod; font-weight:500; font-size:20px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Print</span>
                 </a>
               </li>
               <hr style="width: 98%;">
@@ -55,6 +55,14 @@
                 <a href="" class="master-data-side nav-link">
                 <i class="fa fa-book" aria-hidden="true"></i>
                   Laporan
+                </a>
+              </li>
+              <hr style="width: 98%;">
+              <li class="nav-item">
+              <a href="{{route('user-manage')}}" class="master-data-side nav-link {{(Request::segment(1) == 'User-managemant') ? 'active' : '' }}">
+                <i class="fa-solid fa-users-gear"></i>
+                <i class="" aria-hidden="true"></i>
+                  User Managemant
                 </a>
               </li>
               <hr style="width: 98%;">

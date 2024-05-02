@@ -9,6 +9,7 @@ use App\Http\Controllers\MasterDataController;
 use App\Http\Controllers\DataBarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\DataBarangBaruController;
+use App\Http\Controllers\UserManagemantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,12 @@ Route::post('/simpan-data-input',[DataBarangMasukController::class, 'store'])
 
 Route::post('/simpan-data-keluar',[BarangKeluarController::class, 'store'])
 ->name('simpan-barang-keluar');
+
+// user managemant
+Route::get('/User-managemant',[UserManagemantController::class, 'index'])
+->name('user-manage');
+
+
 
 
 
