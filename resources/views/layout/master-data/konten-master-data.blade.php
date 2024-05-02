@@ -3,7 +3,7 @@
     <div class="content-header">
           
             <div class="card shadow p-2 text-center">
-                <h4>Cafe | Project</h4>         
+                <h4>Master Data</h4>         
             </div>
 @include('flash-message')
             <div class="row">
