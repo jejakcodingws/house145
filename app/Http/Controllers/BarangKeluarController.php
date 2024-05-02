@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 
 class BarangKeluarController extends Controller
 {
-    public function index_barang_keluar(Request $request)
+    public function store(Request $request)
         {
 
         $aturan = 
 
             [
-            'for_input_jumlah_barang' => 'required'
+            'for_jumlah_keluar_barang' => 'required'
             ];
 
         $messages =  
@@ -39,14 +39,14 @@ class BarangKeluarController extends Controller
 
                 //mengambil data sisa stok terakhir di database
                 //berdasarkan kode barang yang dipilih di form
-            $cek_sisa = DataBarangMasukModel::where('Kategory', $request->form_kategory_barang)
+            $cek_sisa = DataBarangMasukModel::where('kd_barang', $request->form_kategory_barang)
             ->orderBy('id', 'DESC')
             ->first();
-
-            $cek_minimal = $cek_sisa['stok_minimal_barang'];
+     
 
             $stok_sisa = $cek_sisa['stok_sisa'] ?? 0;
             // jika ada sisa yang ditemukan
+           
             if(isset($stok_sisa)){
                     //stok sisa + stok masuk baru
                     //jika yang dikeluarkan lebih besar dari stok yg ada
@@ -54,7 +54,7 @@ class BarangKeluarController extends Controller
                         return redirect()
                         ->route('master-data')
                         ->withInput()
-                        ->with('danger', 'Jumlah yang dikeluarkan melebihi stok yang ada');
+                        ->with('danger', 'Jumlah yang dikeluarkan melebihi stok minimal');
                         die;
                     // $isi = $stok_sisa + $request->form_jumlah_masuk;
                 }
@@ -69,22 +69,30 @@ class BarangKeluarController extends Controller
                         die;
                     }
                     else{
+                        $isi_kode_barang = $cek_sisa['kd_barang'];
+                        $cek_minimal = $cek_sisa['stok_minimal_barang'];
+                        $isi_kategory = $cek_sisa['Kategory']?? 0;
+                        $isi_nama_barang = $cek_sisa['nama_barang']?? 0;
                         $keluar = $stok_sisa - $request->for_jumlah_keluar_barang;
+                        $isi_satuan = $cek_sisa['satuan']?? 0;
+
                             $insert = DataBarangMasukModel::create([
-                                'Kategory'          => strtoupper($request->form_kategory_barang),
+                                'Kategory'          => $isi_kategory,
+                                'kd_barang'         => $isi_kode_barang,
+                                'nama_barang'       => $isi_nama_barang,
                                 'stok_masuk'        => 0,
                                 'stok_keluar'       => $request->for_jumlah_keluar_barang,
                                 'stok_sisa'         => $keluar,
-                                'stok_minimal'      => $cek_minimal,
-                                'dibuat_kapan'      => date('Y-m-d H:i:s'),
-                                'diperbarui_kapan'  => date('Y-m-d H:i:s'),
-                                'diperbarui_oleh'   => null,
+                                'stok_minimal_barang' => $cek_minimal,
+                                'satuan'            => $isi_satuan,
+                                'tanggal_dibuat'      => date('Y-m-d H:i:s'),
                             ]);
+                        
                             //jika proses insert ke db berhasil
                             if ($insert) {
                                 return redirect()
                                 ->route('master-data')
-                                ->with('success', 'Berhasil mengeluarkan barang!');
+                                ->with('success', 'mengeluarkan barang!');
                             }
                         }
                     }

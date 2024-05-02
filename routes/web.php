@@ -60,7 +60,7 @@ Route::post('/simpan-data',[DataBarangBaruController::class, 'store'])
 Route::post('/simpan-data-input',[DataBarangMasukController::class, 'store'])
 ->name('simpan-data-masuk');
 
-Route::post('/simpan-data-keluar',[BarangKeluarController::class, 'index_barang_keluar'])
+Route::post('/simpan-data-keluar',[BarangKeluarController::class, 'store'])
 ->name('simpan-barang-keluar');
 
 

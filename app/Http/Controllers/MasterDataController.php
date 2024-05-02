@@ -10,11 +10,12 @@ use Carbon\Carbon;
 class MasterDataController extends Controller
 {
     public function index(){
-
-    $barang     = DataBarangMasukModel::get();
+    
+    $dataTable  = DataBarangMasukModel::paginate(10);
+    $barang     = DataBarangMasukModel::all();
     $today      = Carbon::now()->toDateString();
     $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-    return view('layout/master-data/index',compact('barang','dataToday'));
+    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable'));
     }
 
 

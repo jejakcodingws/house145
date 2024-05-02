@@ -50,6 +50,8 @@ class DataBarangMasukController extends Controller
                 $isi_satuan = $cek_sisa['satuan']?? 0;
 
                 $isi_nama_barang = $cek_sisa['nama_barang']?? 0;
+
+                $isi_kategory = $cek_sisa['Kategory']?? 0;
     
                 // jika ada sisa yang ditemukan
                 if(isset($stok_sisa)){
@@ -65,7 +67,7 @@ class DataBarangMasukController extends Controller
                 $isi_sisa = $stok_sisa + $request -> for_input_jumlah_barang;
 
             $insert = DataBarangMasukModel::create([
-                'Kategory'              => strtoupper($request -> for_kategory_barang),
+                'Kategory'              => strtoupper($isi_kategory),
                 'kd_barang'             => $isi_kode_barang,
                 'nama_barang'           => $isi_nama_barang,
                 'qty_barang'            => $request -> for_input_jumlah_barang,
@@ -79,7 +81,7 @@ class DataBarangMasukController extends Controller
     
             if($insert) {
                 return redirect()->route('master-data')
-                ->with('success', 'berhasil tambah barang');
+                ->with('success', 'Tambah barang berhasil');
             }
         }
 

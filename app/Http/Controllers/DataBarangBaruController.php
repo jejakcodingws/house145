@@ -12,10 +12,11 @@ use Carbon\Carbon;
 class DataBarangBaruController extends Controller
 {
     public function index(){
-        $barang = DataBarangMasukModel::get();
+        $dataTable  = DataBarangMasukModel::paginate(10);
+        $barang = DataBarangMasukModel::all();
         $today      = Carbon::now()->toDateString();
         $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-        return view('layout/master-data/tambah-data-baru',compact('barang','dataToday'));
+        return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 'dataTable'));
     }
 
     public function store(Request $request)
