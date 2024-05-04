@@ -3,16 +3,12 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text font-effect-neon"   style="font-family: Sofia, sans-serif; padding:30px; ">Dig-145</span>
+    <i class="fa-solid fa-house-laptop"></i>
+      <span class="brand-text "   style="font-family: Sofia, sans-serif; padding:10px; ">Ventory 145 web</span>
     </a>
 
     <!-- Sidebar -->
-    <div class="side">
-        <div class="info sik-detail">
-        <i class="fa-solid fa-house-laptop"></i></i>
-          <a href="{{url('/')}}" class="sik-detail">House145</a>
-        </div>
-
+    <div  class="side mt-2">
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">

@@ -67,7 +67,10 @@ Route::post('/simpan-data-keluar',[BarangKeluarController::class, 'store'])
 // user managemant
 Route::get('/User-managemant',[UserManagemantController::class, 'index'])
 ->name('user-manage');
-
+Route::get('/tambah/user/new',[UserManagemantController::class, 'create'])
+->name('add-users');
+Route::post('/simpan/user/new',[UserManagemantController::class, 'store'])
+->name('simpan-users');
 
 
 

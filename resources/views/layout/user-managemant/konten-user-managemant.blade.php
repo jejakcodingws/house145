@@ -11,28 +11,29 @@
                                 <div class="card-body">
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
-                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <div class="navbar-menu navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-list">
-                                            <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Users Login</a>
+                                        <li class="nav-item">
+                                            <a class="nav-link active"  href="{{route('add-users')}}">Tambah Data users</a>
                                             </li>
                                             <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Cek Level Users</a>
+                                            <a class="nav-link active" href="#">Users Login</a>
                                             </li>
-                                            <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Tambah Data users</a>
-                                            </li>
-                                            <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Hapus Users</a>
-                                            </li>
+                                            
                                         </ul>
                                 
                                         </div>
                                     </div>
                                     </nav>
+
+                               
+
                                 </div>
                             </div>
                         </div>
+                                <div class="p-5">
+                                    @yield('konten-tambah-data-user')
+                                </div>
   </div>
 
   
