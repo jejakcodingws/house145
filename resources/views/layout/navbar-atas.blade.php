@@ -17,7 +17,7 @@
         </li>
         <li class="">
         
-          <a href="{{route('login-site')}}" style="color: blue;" class="nav-link"><span><i class="fa-solid fa-door-open"></i></span>Logout</a>
+          <a href="{{route('logout')}}" style="color: blue;" class="nav-link"><span><i class="fa-solid fa-door-open"></i></span>Logout</a>
         </li>
      
       </div>

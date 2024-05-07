@@ -43,12 +43,22 @@
         user-select: none;
       }
 
+      .field-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
       }
     </style>
+
+    
   </head>
   <body class="text-center login-body">
     
@@ -68,8 +78,9 @@
     <br>
 
     <div class="form-floating">
-      <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      <label for="password">Password</label>
+      <span toggle="#password" class="eye field-icon toggle-password"><i class="fa fa-eye"></i></span>
     </div>
     <br>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
@@ -92,4 +103,13 @@
 
     
   </body>
+  <script>
+        document.querySelector('.toggle-password').addEventListener('click', function() {
+            const passwordInput = document.querySelector(this.getAttribute('toggle'));
+            const fieldType = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', fieldType);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    </script>
 </html>

@@ -24,12 +24,14 @@ class DataBarangBaruController extends Controller
         $aturan = 
         [
             'for_nama_barang'           => 'required',
+            'for_kode_barang'           => 'required|unique:data_masuk,kd_barang',
 
         ];
 
         $messages =  
         [
-             'required' => 'Wajib Diisi',   
+             'required' => 'Wajib Diisi',
+             'unique'   => 'tidak boleh ada kode yang sama',   
         ];
 
         $validator = Validator::make($request->all(), $aturan, $messages);

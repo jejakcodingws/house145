@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('data_masuk', function (Blueprint $table) {
             $table->id();
+            $table->string('kd_barang')->nullable();
+            $table->string('stok_minimal_barang')->nullable();
+            $table->string('satuan')->nullable();
+            $table->string('stok_sisa')->nullable();
+            $table->string('stok_masuk')->nullable();
+            $table->string('stok_keluar')->nullable();
             $table->string('Kategory')->nullable();
             $table->string('nama_barang')->nullable();
             $table->string('qty_barang')->nullable();

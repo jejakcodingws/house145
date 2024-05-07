@@ -27,13 +27,14 @@ Route::get('/', function () {
     return view('layout.login');
 });
 
-Route::get('/logout',[LoginController::class, 'index'])
-->name('login-site')
-->middleware('auth');
+Route::get('/login',[LoginController::class, 'index'])
+->name('login');
 
 Route::get('/dashboard',[LoginController::class, 'masuk'])
 ->name('masuk')
 ->middleware('auth');
+
+Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
 Route::post('/login',[LoginController::class, 'authenticate'])
 ->name('enter-login');
