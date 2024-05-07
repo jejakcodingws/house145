@@ -7,13 +7,19 @@
         </li>
       </div>
       <div class="nav-atas-side-kanan">
-    
-        <li class="">
-          <a href="#" class="nav-link">Logout</a>
+        <li class=""
+        style="display: flex; justify-content:center; align-items:center;">
+        <span class="p-2">Selamat Datang</span>
+        <span 
+        style="font-weight:bolder;">
+        {{Auth::user()->name}}
+        </span>
         </li>
         <li class="">
-          <a href="#" class="nav-link">Setting</a>
+        
+          <a href="{{route('login-site')}}" style="color: blue;" class="nav-link"><span><i class="fa-solid fa-door-open"></i></span>Logout</a>
         </li>
+     
       </div>
     </ul>
   

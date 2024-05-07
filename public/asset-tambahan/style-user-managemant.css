@@ -6,3 +6,11 @@
     transform: rotate(2deg);
     transition: 0.4s;
 } 
+
+.title-add-user{
+    background-color: blue;
+    height: 3vh;
+    color: white;
+    width: auto;
+ 
+}

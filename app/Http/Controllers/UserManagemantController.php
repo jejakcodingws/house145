@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Models\User;
 
 class UserManagemantController extends Controller
 {
@@ -38,28 +39,24 @@ class UserManagemantController extends Controller
             ->route('tambah-data-baru')
             ->withErrors($validator)->withInput();
         }else{
-            $insert = DataBarangMasukModel::create([
-                'Kategory'              => strtoupper($request -> for_kategory_barang),
-                'kd_barang'             => strtoupper($request -> for_kode_barang),
-                'nama_barang'           => $request -> for_nama_barang,
-                'stok_minimal_barang'   => $request -> for_stok_minimal,
-                'satuan'                => $request -> for_satuan,
-                'stok_sisa'             => $request -> for_stok_minimal,
-                'stok_masuk'            => 0,
-                'stok_keluar'           => 0,
-                'tanggal_dibuat'        => date('Y-m-d H:i:s'),
+            $insert = User::create([
+                'name'                  => strtoupper($request -> for_nama),
+                'email'                 => $request -> for_email,
+                'role'                  => $request -> for_level_login,
+                'password'              => $request -> for_password,
+                'dibuat_kapan'          => date('Y-m-d H:i:s'),
             ]);
     
             if($insert) {
-                return redirect()->route('tambah-data-baru')
-                ->with('success', 'berhasil tambah barang baru');
+                return redirect()->route('add-users')
+                ->with('success', 'Success add user new');
             }
         }
 
         }catch (\Throwable $th) 
         { 
             return redirect()
-            ->route('tambah-data-baru')
+            ->route('add-users')
             ->with('danger', $th->getMessage());
         }
     }

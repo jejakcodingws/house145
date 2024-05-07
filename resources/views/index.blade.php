@@ -24,6 +24,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
+
   <!-- Navbar -->
   @include('layout/navbar-atas')
 <!-- konten navbar atas -->

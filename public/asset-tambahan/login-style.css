@@ -1,0 +1,48 @@
+.login-body {
+    background-image: linear-gradient(to bottom, #4682B4, #00FFFF, #00FA9A);
+}
+.login-site {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5vh;
+
+}
+
+.marq-title marquee{
+    color: white;
+    padding: 1vh;
+    width: 80%;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.marq-title img{
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 3vh;
+}
+
+.form-login {
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login-site {
+    width: 35vw;
+}
+.form-login-site form h1 {
+    font-size: 35px;
+
+}
+
+@media (max-width: 488px) {
+    .login-site {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1vh;
+    }
+}
