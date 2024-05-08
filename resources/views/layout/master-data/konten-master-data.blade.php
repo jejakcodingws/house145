@@ -84,7 +84,10 @@
 
             <div class="col-sm-3 col-6">
             <div class="description-block border-right">
-            <h5 class="description-header">$24,813.53</h5>
+            @foreach ($datapenghasilan as $d)
+            <h5 class="description-header">{{$d -> pemasukan}}</h5>
+            @endforeach
+         
             <span class="description-text text-xs">pendapatan hari ini</span>
             </div>
 
@@ -239,7 +242,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form>
+      <form action="{{route('simpan-pendapatan')}}" method="post">
+        @csrf
             <div class="mb-3">
                 <label for="for_hari" class="form-label">Hari</label>
                 <input type="text" class="form-control" name="for_hari" id="for_hari" placeholder="exam: senen">

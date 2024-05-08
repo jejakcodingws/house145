@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\DataBarangMasukModel;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Models\PenghasilanModel;
 
 class MasterDataController extends Controller
 {
+
     public function index(){
     
+    // Ambil tanggal hari ini
+    $tanggal_hari_ini = Carbon::today()->toDateString();
+
+    // Ambil data hanya jika tanggal pada kolom 'dibuat_kapan' sama dengan tanggal hari ini
+    $datapenghasilan = PenghasilanModel::whereDate('tanggal', $tanggal_hari_ini)->get();
+
     $dataTable  = DataBarangMasukModel::paginate(10);
     $barang     = DataBarangMasukModel::all();
     $today      = Carbon::now()->toDateString();
     $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable'));
+    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable','datapenghasilan'));
     }
 
 

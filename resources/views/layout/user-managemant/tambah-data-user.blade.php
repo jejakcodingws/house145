@@ -16,11 +16,11 @@
     <input type="email" class="form-control" id="exampleInputEmail1" name="for_email" placeholder="input email login user" aria-describedby="emailHelp">
   </div>
   <label for="for_level_login">Level Login</label>
-  <select class="form-select mb-2" name="for_level_login" id="for_level_login" aria-label="Default select example">
+  <select class="form-select mb-2" name="for_level_login" id="for_level_login">
   <option selected>Choose ..</option>
-  <option value="1">Karyawan</option>
-  <option value="2">Admin</option>
-  <option value="3">Owner</option>
+  <option value="karyawan">karyawan</option>
+  <option value="admin">admin</option>
+  <option value="owner">owner</option>
 </select>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>

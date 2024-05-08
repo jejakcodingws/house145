@@ -10,11 +10,14 @@ use App\Models\User;
 class UserManagemantController extends Controller
 {
     public function index(){
-        return view('layout/user-managemant/index');
+
+        $datauser = User::all();
+        return view('layout/user-managemant/index', compact('datauser'));
     }
 
     function create(){
-        return view('layout/user-managemant/tambah-data-user');
+        $datauser = User::all();
+        return view('layout/user-managemant/tambah-data-user',compact('datauser'));
     }
 
 
@@ -42,7 +45,7 @@ class UserManagemantController extends Controller
             $insert = User::create([
                 'name'                  => strtoupper($request -> for_nama),
                 'email'                 => $request -> for_email,
-                'role'                  => $request -> for_level_login,
+                'level'                  => $request -> for_level_login,
                 'password'              => $request -> for_password,
                 'dibuat_kapan'          => date('Y-m-d H:i:s'),
             ]);

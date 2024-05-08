@@ -2,7 +2,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{{route('masuk')}}" class="brand-link">
     <i class="fa-solid fa-house-laptop"></i>
       <span class="brand-text "   style="font-family: Sofia, sans-serif; padding:10px; ">Ventory 145 web</span>
     </a>
@@ -54,6 +54,7 @@
                 </a>
               </li>
               <hr style="width: 98%;">
+              @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
               <li class="nav-item">
               <a href="{{route('user-manage')}}" class="master-data-side nav-link {{(Request::segment(1) == 'User-managemant') ? 'active' : '' }}">
                 <i class="fa-solid fa-users-gear"></i>
@@ -62,6 +63,8 @@
                 </a>
               </li>
               <hr style="width: 98%;">
+              @endif
+              
             </ul>
           </li>
         </ul>
