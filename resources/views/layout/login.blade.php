@@ -9,6 +9,9 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Login</title>
 
+   
+
+
      <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <!-- Font Awesome -->
@@ -57,6 +60,43 @@
         }
       }
     </style>
+    <style>
+	h1,h2,p,a{
+		font-family:Georgia, 'Times New Roman', Times, serif;
+		font-weight: normal;
+	}
+ 
+	.jam-digital-malasngoding {
+		overflow: hidden;
+		width: 250px;
+		margin: 10px auto;
+		border: 5px solid #efefef;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+     
+	}
+	.kotak{
+		float: right;
+		width: 80px;
+		height: 40px;
+        align-items: center;
+        text-align: center;
+		background-color:black;
+        display: flex;
+        justify-content: center;
+	}
+	.jam-digital-malasngoding p {
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+		margin-top: 10px;
+        padding: 10px;
+	}
+ 
+ 
+</style>
+
 
     
   </head>
@@ -90,11 +130,26 @@
       </div>
 
       <div class="col marq-title">
-        <marquee behavior="" direction="">Sistem Manageman Pengelolaan Data</marquee>
+                                        <div class="jam-digital-malasngoding">
+                                            <div class="kotak">
+                                                <p id="jam"></p>
+                                            </div>
+                                            <div class="kotak">
+                                                <p id="menit"></p>
+                                            </div>
+                                            <div class="kotak">
+                                                <p id="detik"></p>
+                                            </div>
+                                        </div>
+                                        
+                                   
+          
+        <h4 id="typing">Sistem Manageman Data Office 145</h4>
+        <h6 id="crow">|</h6>
         <img src="{{asset('img/login2.jpeg')}}" alt="">
-
-
+        </div>
       </div>
+
 
 
   </div>
@@ -103,6 +158,8 @@
 
     
   </body>
+
+
   <script>
         document.querySelector('.toggle-password').addEventListener('click', function() {
             const passwordInput = document.querySelector(this.getAttribute('toggle'));
@@ -112,4 +169,16 @@
             this.querySelector('i').classList.toggle('fa-eye-slash');
         });
     </script>
+      <script>
+        window.setTimeout("waktu()", 1000);
+      
+        function waktu() {
+          var waktu = new Date();
+          setTimeout("waktu()", 1000);
+          document.getElementById("jam").innerHTML = waktu.getHours();
+          document.getElementById("menit").innerHTML = waktu.getMinutes();
+          document.getElementById("detik").innerHTML = waktu.getSeconds();
+        }
+      </script>
+
 </html>

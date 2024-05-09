@@ -14,16 +14,22 @@ class MasterDataController extends Controller
     public function index(){
     
     // Ambil tanggal hari ini
+    $tanggal_kemarin = carbon::yesterday()->toDateString();
     $tanggal_hari_ini = Carbon::today()->toDateString();
 
     // Ambil data hanya jika tanggal pada kolom 'dibuat_kapan' sama dengan tanggal hari ini
+    $dataPenghasilanKemarin = PenghasilanModel::whereDate('tanggal', $tanggal_kemarin)->get();
     $datapenghasilan = PenghasilanModel::whereDate('tanggal', $tanggal_hari_ini)->get();
+    
+    // total pendapatan sebulan 
+    $totalPendapatan = PenghasilanModel::sum('pemasukan');
+    $formatIncome = number_format($totalPendapatan, 2);
 
     $dataTable  = DataBarangMasukModel::paginate(10);
     $barang     = DataBarangMasukModel::all();
     $today      = Carbon::now()->toDateString();
     $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable','datapenghasilan'));
+    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable','datapenghasilan','dataPenghasilanKemarin','formatIncome'));
     }
 
 

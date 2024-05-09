@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PenghasilanModel;
+use Carbon\Carbon;
 
 
 class LoginController extends Controller
@@ -23,7 +25,7 @@ class LoginController extends Controller
         // var_dump($request->email);
         // var_dump($request->password);
         // die;
-
+       
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -34,8 +36,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('dashboard')  
-            ->with('success', 'Anda Berhasil Login');
+            return redirect()->intended('dashboard')
+            ->with('success', 'Berhasil Login sebagai ' . Auth::user()->name);
         }
  
         return back()->withErrors([

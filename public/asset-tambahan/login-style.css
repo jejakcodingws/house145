@@ -24,6 +24,7 @@
     margin-top: 3vh;
 }
 
+
 .form-login {
     padding: 5vh;
     display: flex;
@@ -46,3 +47,23 @@
         gap: 1vh;
     }
 }
+
+#typing { width: auto; color: 
+    #0e0707; float: left; 
+    font-size: px; margin: 0 auto; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 12px; overflow: hidden; 
+    white-space: nowrap; 
+    animation: typing 6s steps(45) 3s infinite; } 
+
+    #typing span{ color:#000000; } 
+
+    #crow { float: left; 
+        margin-top: 5px; 
+        color: #000000; 
+        font-size: 25px; 
+        animation: crow 5s linear 5s infinite; } 
+
+    @keyframes typing { from { width: 0; } to { width: 501px; } } 
+
+    @keyframes crow { from { opacity: 0; } to { opacity: 1; } }
