@@ -105,28 +105,31 @@
 
   <div class="row login-site">
 
-      <div class="col form-login">
-      <main class="form-signin  form-login-site">
-  <form action="{{route('enter-login')}}" method="post">
-    @csrf
-    <h1 class="h3 mb-3 fw-normal" style="color: black; font-weight:700px;">Login</h1>
-    {{$errors->first('email')}}
-    <div class="form-floating">
-      <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <br>
+  <div class="col form-login">
+    <main class="form-signin  form-login-site">
+      <form class="form-input-login" action="{{route('enter-login')}}" method="post">
+        @csrf
+        <h1 class="h3 mb-3 fw-normal" style="color: black; font-weight:700px;">Login</h1>
+        {{$errors->first('email')}}
+        <div class="form-floating">
+          <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <br>
 
-    <div class="form-floating">
-      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-      <label for="password">Password</label>
-      <span toggle="#password" class="eye field-icon toggle-password"><i class="fa fa-eye"></i></span>
-    </div>
-    <br>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
-  </form>
-</main>
+        <div class="form-floating">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+          <label for="password">Password</label>
+          <span toggle="#password" class="eye field-icon toggle-password"><i class="fa fa-eye"></i></span>
+        </div>
+        <br>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
+      </form>
+      <p class="">
+        Tebet 145
+      </p>
+  </main>
       </div>
 
       <div class="col marq-title">
@@ -141,12 +144,6 @@
                                                 <p id="detik"></p>
                                             </div>
                                         </div>
-                                        
-                                   
-          
-        <h4 id="typing">Sistem Manageman Data Office 145</h4>
-        <h6 id="crow">|</h6>
-        <img src="{{asset('img/login2.jpeg')}}" alt="">
         </div>
       </div>
 

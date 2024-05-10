@@ -13,6 +13,8 @@ use App\Http\Controllers\UserManagemantController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Middleware\CekLevel;
+use App\Http\Controllers\TargetPenghasilanController;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      ->name('simpan-users')
      ;
 
+    //  route target penghasilan
+    Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
+    ->name('simpan-target');
 });
 
 

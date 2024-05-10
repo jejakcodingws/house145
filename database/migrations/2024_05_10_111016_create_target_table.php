@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('target_penghasilan', function (Blueprint $table) {
+        Schema::create('target', function (Blueprint $table) {
             $table->id();
             $table->string('kd_target')->nullable();
             $table->string('bulan')->nullable();
             $table->integer('nominal_target');
             $table->datetime('dibuat_kapan');
             $table->string('dibuat_oleh');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('target_penghasilan');
+        Schema::dropIfExists('target');
     }
 };

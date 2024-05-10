@@ -11,9 +11,8 @@
                 <div class="row">
                 <div class="col detail-dashboard">
 
-                    <div>
-                        <h5>Kopi, dengan setiap tegukan, mengantar kita pada perjalanan melintasi waktu dan ruang, membawa 
-                        ke dalam alam semesta aroma dan cita rasa yang tak tertandingi. </h5>
+                    <div class="detail-dashboard-title">
+                        <h1>Dashboard <span> {{Auth::user()->level}}</span></h1>
                     </div>
                 </div>
 

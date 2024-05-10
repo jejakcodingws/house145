@@ -7,14 +7,7 @@
             </div>
 @include('flash-message')
 
-@if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
-<nav class="navbar navbar-light bg-light master-data-menu" >
-  <div class="container-fluid">
-    <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#modalinputtarget" href="#">Input Target Jual</a>
-    <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#modalupdatetarget" href="#">Update Target Jual</a>
-  </div>
-</nav>
-@endif
+
             <div class="row">
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
@@ -181,7 +174,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form class="tambah-data" action="{{route('simpan-data-masuk')}}" method="post">
+      <form class="tambah-data" action="{{route('simpan-target')}}" method="post">
         @csrf
             <div class="mb-3">
                 <label for="for_kode_target" class="form-label">Kode Target</label>
@@ -192,7 +185,7 @@
             </div>
             <div class="mb-3">
                 <label for="for_bulan" class="form-label">Bulan</label>
-                <input type="month" class="form-control" name="for_bulan" value="{{old('for_bulan')}}" id="for_bulan" placeholder="input bulan saja">
+                <input type="text" class="form-control" name="for_bulan" value="{{old('for_bulan')}}" id="for_bulan" placeholder="input bulan saja">
                 @if ($errors->has('for_bulan'))
                   <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_bulan')}}</div>
                 @endif
@@ -212,38 +205,7 @@
 </div>
 
 <!-- update target jual -->
-<div class="modal fade" id="modalupdatetarget" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Update Target Jual</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form class="tambah-data" action="{{route('simpan-data-masuk')}}" method="post">
-        @csrf
-          <div class="mb-3">
-              <label for="jenis-pemakaian">Kategory barang</label>
-              <select class="form-select" name="for_kategory_barang">
-                  <option selected>Pilih barang</option>
-                  @foreach ($barang->unique('kd_barang') as $b)
-                      <option value="{{ $b->kd_barang }}">{{ $b->kd_barang }} | {{ $b->Kategory }} | {{ $b->nama_barang }}</option>
-                  @endforeach
-              </select>
-          </div>
-            <div class="mb-3">
-                <label for="for_input_jumlah_barang" class="form-label">Qty</label>
-                <input type="text" class="form-control" name="for_input_jumlah_barang" value="{{old('for_input_jumlah_barang')}}" id="for_input_jumlah_barang" placeholder="input dengan angka">
-                @if ($errors->has('for_input_jumlah_barang'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_input_jumlah_barang')}}</div>
-                @endif
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- Modal tambah data-->
 <div class="modal fade" id="modalinputdata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

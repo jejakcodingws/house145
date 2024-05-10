@@ -115,15 +115,25 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('../img/dashboard1.jpeg');
     border-radius: 10px;
     margin: 10px;
- 
-    
+}
+
+.detail-dashboard-title h1 {
+    font-size: 55px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+    border-radius: 10px;
+}
+.detail-dashboard-title h1 span {
+    font-size: 55px;
+    color: rgb(163, 136, 0);
 }
 
 .detail-dashboard h5 {
-    color: white;
+    color: rgb(15, 11, 11);
 }
  
 
