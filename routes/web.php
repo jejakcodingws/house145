@@ -15,6 +15,7 @@ use App\Http\Controllers\PendapatanController;
 use App\Http\Middleware\CekLevel;
 use App\Http\Controllers\TargetPenghasilanController;
 use Symfony\Component\HttpKernel\HttpCache\Store;
+use App\Http\Controllers\SiteKaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,8 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
     ->name('simpan-target');
+    Route::get('/Data/target',[TargetPenghasilanController::class, 'index'])
+    ->name('data-target');
 });
 
 
@@ -90,6 +93,12 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::post('/simpan-pendapatan',[PendapatanController::class, 'store'])
     ->name('simpan-pendapatan')
    ;
+
+//    route site karyawan
+    Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
+    ->name('site-karyawan');
+    Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
+    ->name('tambah-karyawan');
    
 });
 

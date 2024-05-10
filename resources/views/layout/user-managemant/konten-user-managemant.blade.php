@@ -4,11 +4,13 @@
     <div class="content-header">
       <div class="card shadow mb-4">
         @include('layout/flash-message')
+                                <a href="{{route('user-manage')}}" >
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">
                                     <span><i class="fa-solid fa-gears"></i></span>    
                                     Master Data User</h6>
                                 </div>
+                                </a>
                                 <div class="card-body">
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
@@ -21,8 +23,13 @@
                                             </li>
                                             <li class="nav-item"  data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
                                             <a class="nav-link active">
-                                            <span><i class="fa-solid fa-user-plus"></i></span>    
+                                            <span><i class="fa-solid fa-money-bill-trend-up"></i></span>    
                                             Input Target</a>
+                                            </li>
+                                            <li class="nav-item">
+                                            <a class="nav-link active" href="{{route('data-target')}}">
+                                            <span><i class="fa-solid fa-arrows-to-eye"></i></span>    
+                                            Data Target</a>
                                             </li>
                                         
                     
@@ -53,20 +60,22 @@
                                 
                                         </tr>
                                     @endforeach
-                                        
+                                    <div class="p-2">
+                                    @yield('konten-data-target')
+                                    </div>
                                        
-                                    </tbody>
+                                    
                                                                                 
-                                                                                </table>
-
-                               
-
+                   </table>
+</tbody>
+           
                                 </div>
                             </div>
                         </div>
-                                <div class="p-5">
+                                <div class="p-2">
                                     @yield('konten-tambah-data-user')
                                 </div>
+                               
   </div>
 
   <!-- input target jual -->
@@ -78,30 +87,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+
       <form class="tambah-data" action="{{route('simpan-target')}}" method="post">
         @csrf
             <div class="mb-3">
-                <label for="for_kode_target" class="form-label">Kode Target</label>
-                <input type="text" class="form-control" name="for_kode_target" value="{{old('for_kode_target')}}" id="for_kode_target" placeholder="cth: tg-mei">
-                @if ($errors->has('for_kode_target'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_kode_target')}}</div>
+                <label for="target_name" class="form-label">Kode Target</label>
+                <input type="text" class="form-control" name="target_name" value="{{old('target_name')}}" id="target_name" placeholder="cth: tg-mei">
+                @if ($errors->has('target_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('target_name')}}</div>
                 @endif
             </div>
             <div class="mb-3">
-                <label for="for_bulan" class="form-label">Bulan</label>
-                <input type="text" class="form-control" name="for_bulan" value="{{old('for_bulan')}}" id="for_bulan" placeholder="input bulan saja">
-                @if ($errors->has('for_bulan'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_bulan')}}</div>
+                <label for="bulan_name" class="form-label">Bulan</label>
+                <input type="text" class="form-control" name="bulan_name" value="{{old('bulan_name')}}" id="bulan_name" placeholder="input bulan saja">
+                @if ($errors->has('bulan_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('bulan_name')}}</div>
                 @endif
             </div>
             <div class="mb-3">
-                <label for="for_nominal" class="form-label">Target</label>
-                <input type="text" class="form-control" name="for_nominal" value="{{old('for_nominal')}}" id="for_nominal" placeholder="Nominal Rupiah">
-                @if ($errors->has('for_nominal'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_nominal')}}</div>
+                <label for="nominal_name" class="form-label">Target</label>
+                <input type="text" class="form-control" name="nominal_name" value="{{old('nominal_name')}}" id="nominal_name" placeholder="Nominal Rupiah">
+                @if ($errors->has('nominal_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('nominal_name')}}</div>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
       </div>
     </div>

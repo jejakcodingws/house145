@@ -165,44 +165,7 @@
 
 <!-- modal  start-->
 <!-- modal menu side 2 -->
-<!-- input target jual -->
-<div class="modal fade" id="modalinputtarget" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Input Target Office</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form class="tambah-data" action="{{route('simpan-target')}}" method="post">
-        @csrf
-            <div class="mb-3">
-                <label for="for_kode_target" class="form-label">Kode Target</label>
-                <input type="text" class="form-control" name="for_kode_target" value="{{old('for_kode_target')}}" id="for_kode_target" placeholder="cth: tg-mei">
-                @if ($errors->has('for_kode_target'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_kode_target')}}</div>
-                @endif
-            </div>
-            <div class="mb-3">
-                <label for="for_bulan" class="form-label">Bulan</label>
-                <input type="text" class="form-control" name="for_bulan" value="{{old('for_bulan')}}" id="for_bulan" placeholder="input bulan saja">
-                @if ($errors->has('for_bulan'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_bulan')}}</div>
-                @endif
-            </div>
-            <div class="mb-3">
-                <label for="for_nominal" class="form-label">Target</label>
-                <input type="text" class="form-control" name="for_nominal" value="{{old('for_nominal')}}" id="for_nominal" placeholder="Nominal Rupiah">
-                @if ($errors->has('for_nominal'))
-                  <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_nominal')}}</div>
-                @endif
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- update target jual -->
 

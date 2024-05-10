@@ -4,17 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TargetPenghasilanModel;
+use App\Models\User;
 
 class TargetPenghasilanController extends Controller
 {
+    function index(){
+        $datauser = User::all();
+        $datatarget = TargetPenghasilanModel::all();
+        return view('layout/user-managemant/data-target',compact('datauser','datatarget'));
+    }
+
+
+
+
+
     public function store(Request $request)
     {   
         $aturan = 
         [
-            'for_kd_target'           => 'required',
+            'target_name'           => 'required',
+            'bulan_name'           => 'required',
+            'nominal_name'           => 'required',
 
         ];
 
@@ -31,11 +43,10 @@ class TargetPenghasilanController extends Controller
             ->route('user-manage')
             ->withErrors($validator)->withInput();
         }else{
-
             $insert = TargetPenghasilanModel::create([
-                'kd_target'             => strtoupper($request -> for_kd_target),
-                'bulan'                 => $request -> for_bulan,
-                'nominal_target'        => $request -> for_nominal,
+                'kd_target'             => strtoupper($request -> target_name),
+                'bulan'                 => $request -> bulan_name,
+                'nominal_target'        => $request -> nominal_name,
                 'dibuat_kapan'          => date('Y-m-d H:i:s'),
                 'dibuat_oleh'           => Auth::user()->name,
             ]);

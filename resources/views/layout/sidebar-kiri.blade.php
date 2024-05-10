@@ -54,6 +54,14 @@
                 </a>
               </li>
               <hr style="width: 98%;">
+              <li class="nav-item">
+                <a href="{{route('site-karyawan')}}" 
+                class="master-data-side nav-link {{(Request::segment(1) == 'site-karyawan-145') ? 'active' : '' }}">
+                <i class="fa-solid fa-building-user"></i>
+                  Site Karyawan
+                </a>
+              </li>
+              <hr style="width: 98%;">
               @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
               <li class="nav-item">
               <a href="{{route('user-manage')}}" class="master-data-side nav-link {{(Request::segment(1) == 'User-managemant') ? 'active' : '' }}">

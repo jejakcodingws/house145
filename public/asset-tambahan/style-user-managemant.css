@@ -2,9 +2,9 @@
     color: blue;
 } 
 .card-body .navbar .container-fluid .navbar-menu ul li a:hover {
-    color: green;
-    transform: rotate(2deg);
-    transition: 0.4s;
+    color: blue;
+    font-size: 17px;
+    transition: 0.7s;
 } 
 
 .title-add-user{
@@ -13,4 +13,13 @@
     color: white;
     width: auto;
  
+}
+
+.table-target {
+    font-size: 13px;
+
+}
+
+.table-target thead tr th {
+    font-size: 12px;
 }
