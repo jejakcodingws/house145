@@ -7,6 +7,7 @@ use App\Models\DataBarangMasukModel;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use App\Models\PenghasilanModel;
+use App\Models\TargetPenghasilanModel;
 
 class MasterDataController extends Controller
 {
@@ -21,6 +22,10 @@ class MasterDataController extends Controller
     $dataPenghasilanKemarin = PenghasilanModel::whereDate('tanggal', $tanggal_kemarin)->get();
     $datapenghasilan = PenghasilanModel::whereDate('tanggal', $tanggal_hari_ini)->get();
     
+
+    // panggil data target model perbulan ini
+    $bulanIni = Carbon::now()->format('m');
+    $targetPenghasilan = TargetPenghasilanModel::whereMonth('bulan', $bulanIni)->get();
     // total pendapatan sebulan 
     $totalPendapatan = PenghasilanModel::sum('pemasukan');
     $formatIncome = number_format($totalPendapatan, 2);
@@ -29,7 +34,10 @@ class MasterDataController extends Controller
     $barang     = DataBarangMasukModel::all();
     $today      = Carbon::now()->toDateString();
     $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-    return view('layout/master-data/index',compact('barang','dataToday', 'dataTable','datapenghasilan','dataPenghasilanKemarin','formatIncome'));
+    return view('layout/master-data/index',
+    compact('barang','dataToday', 
+    'dataTable','datapenghasilan',
+    'dataPenghasilanKemarin','formatIncome','targetPenghasilan'));
     }
 
 

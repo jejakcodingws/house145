@@ -38,18 +38,29 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      // user managemant
      Route::get('/User-managemant',[UserManagemantController::class, 'index'])
      ->name('user-manage');
-     Route::get('/tambah/user/new',[UserManagemantController::class, 'create'])
+     Route::get('/add-users',[UserManagemantController::class, 'create'])
      ->name('add-users');
      Route::post('/simpan/user/new',[UserManagemantController::class, 'store'])
-     ->name('simpan-users')
-     ;
+     ->name('simpan-users');
+     Route::get('/delete-user/{id}',[UserManagemantController::class, 'destroy'])
+     ->name('delete-user');
+
+     Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
+     ->name('simpan-data-karyawan');
 
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
     ->name('simpan-target');
-    Route::get('/Data/target',[TargetPenghasilanController::class, 'index'])
+    Route::get('/Data-target',[TargetPenghasilanController::class, 'index'])
     ->name('data-target');
-});
+
+    
+//    route site karyawan
+    Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
+    ->name('site-karyawan');
+    Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
+    ->name('tambah-karyawan');
+    });
 
 
 Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], function(){
@@ -94,11 +105,6 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     ->name('simpan-pendapatan')
    ;
 
-//    route site karyawan
-    Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
-    ->name('site-karyawan');
-    Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
-    ->name('tambah-karyawan');
    
 });
 

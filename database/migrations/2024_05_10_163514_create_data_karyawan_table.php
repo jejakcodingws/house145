@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('hp')->nullable();
             $table->string('alamat_domisili')->nullable();
             $table->string('lama_bekerja')->nullable();
-            $table->string('area_kerja')->nullable();
+            $table->string('departmant')->nullable();
+            $table->integer('aktif_kerja')->nullable();
+            $table->string('status_karyawan')->nullable();
+            $table->string('tempat_tanggal_lahir')->nullable();
+            $table->string('dibuat_oleh')->nullable();
+            $table->datetimes('dibuat_kapan')->nullable();
             $table->timestamps();
         });
     }

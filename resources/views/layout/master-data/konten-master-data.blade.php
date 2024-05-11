@@ -24,39 +24,39 @@
             <div class="col-lg-3 col-6" data-bs-toggle="modal" data-bs-target="#modalinputdata">
                 <div class="small-box bg-info">
                 <div class="inner">
-                <h3>%</h3>
+                <h3><i class="fa-regular fa-hand-point-right"></i></h3>
                 <p>Barang Masuk</p>
                 </div>
                 <div class="icon">
                 <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer"> Update Data Masuk <i class="fa-solid fa-circle-plus"></i></a>
+                <a href="#" class="small-box-footer"> Update Data Masuk </a>
                 </div>
             </div>
 
           <div class="col-lg-3 col-6" data-bs-toggle="modal" data-bs-target="#modaldatakeluar">
             <div class="small-box bg-danger">
             <div class="inner">
-            <h3>%</h3>
+            <h3><i class="fa-regular fa-hand-point-left"></i></h3>
             <p>Barang Keluar</p>
             </div>
             <div class="icon">
             <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">Update Data Keluar <i class="fa-solid fa-circle-minus"></i></a>
+            <a href="#" class="small-box-footer">Update Data Keluar </a>
             </div>
             </div>
 
             <div class="col-lg-3 col-6" data-bs-toggle="modal" data-bs-target="#modalpendapatanharian">
             <div class="small-box bg-warning">
             <div class="inner">
-            <h3>%</h3>
-            <p>Master Penghasilan</p>
+            <h3>Rp</h3>
+            <p>Pendapatan Hari ini</p>
             </div>
             <div class="icon">
             <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">Input Nilai <i class="fa-solid fa-percent"></i></a>
+            <a href="#" class="small-box-footer">Input Nominal Pendapatan</a>
             </div>
             </div>
 
@@ -99,8 +99,10 @@
 
             <div class="col-sm-3 col-6">
             <div class="description-block">
-            <h5 class="description-header">Rp</h5>
-            <span class="description-text text-xs">Target Jual</span>
+            @foreach ($targetPenghasilan as $d)
+              <h5 class="description-header">Rp {{ number_format($d->nominal_target, 0, ',', '.') }}</h5>
+            @endforeach
+            <span class="description-text text-xs">Target sales</span>
             </div>
 
             </div>

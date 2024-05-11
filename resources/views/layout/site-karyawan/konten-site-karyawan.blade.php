@@ -26,7 +26,7 @@
                                             <a class="nav-link active" aria-current="page" href="{{route('site-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
                                             </li>
                                             <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="{{route('tambah-karyawan')}}"><span><i class="fa-solid fa-user-plus"></i></span>Data Karyawan</a>
+                                            <a class="nav-link active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-karyawan')}}"><span><i class="fa-solid fa-user-plus"></i></span>Data Karyawan</a>
                                             </li>
                                             <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" href="#"><span><i class="fa-solid fa-calendar-days"></i></span>Input Absensi</a>
@@ -41,10 +41,38 @@
     </div>
 
     @yield('konten-tambah-data-karyawan')
+    <table class="table table-hover">
+    <thead>
 
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NIK</th>
+      <th scope="col">NAMA</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">AKTIF KERJA</th>
+      <th scope="col">STATUS KARYAWAN</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach($datakaryawan as $d)
+    <tr>
+      <th scope="row">1</th>
+      <td>{{$d -> nik_karyawan}}</td>
+      <td>{{$d -> nama}}</td>
+      <td>{{$d -> email}}</td>
+      <td>{{$d -> aktif_kerja}}</td>
+      <td>{{$d -> status_karyawan}}</td>
+    </tr>
+    @endforeach
+  </tbody>
+    </table>
                                 </div>
                             </div>
+     
                                
   </div>
+
+
+  
 
 @endsection

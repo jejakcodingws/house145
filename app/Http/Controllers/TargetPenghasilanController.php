@@ -11,7 +11,7 @@ use App\Models\User;
 class TargetPenghasilanController extends Controller
 {
     function index(){
-        $datauser = User::all();
+        $datauser = User::where('status', 1)->get();
         $datatarget = TargetPenghasilanModel::all();
         return view('layout/user-managemant/data-target',compact('datauser','datatarget'));
     }

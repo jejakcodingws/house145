@@ -11,12 +11,12 @@ class UserManagemantController extends Controller
 {
     public function index(){
 
-        $datauser = User::all();
+        $datauser = User::where('status', 1)->get();
         return view('layout/user-managemant/index', compact('datauser'));
     }
 
     function create(){
-        $datauser = User::all();
+        $datauser =User::where('status', 1)->get();
         return view('layout/user-managemant/tambah-data-user',compact('datauser'));
     }
 
@@ -60,6 +60,26 @@ class UserManagemantController extends Controller
         { 
             return redirect()
             ->route('add-users')
+            ->with('danger', $th->getMessage());
+        }
+    }
+
+    function destroy($id){
+        try {
+            $update = User::where(['id' => $id])->update([
+                'status' => 0,
+            ]);
+    
+            if($update) {
+                return redirect()
+                ->route('user-manage')
+                ->with('success', 'User berhasil di hapus');
+            }
+        }
+        catch (\Throwable $th) 
+        { 
+            return redirect()
+            ->route('user-manage')
             ->with('danger', $th->getMessage());
         }
     }

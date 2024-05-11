@@ -15,24 +15,24 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
                                         <div class="navbar-menu navbar-collapse" id="navbarSupportedContent">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-list">
-                                            <li class="nav-item">
-                                            <a class="nav-link active"  href="{{route('add-users')}}">
+                                        <ul style="gap: 5px;" class="navbar-nav me-auto mb-2  navbar-list">
+                                        <li class="nav-item">
+                                        <a href="{{ route('add-users') }}" class=" fw-bold nav-link {{ request()->is('add-users') ? 'bg-success' : '' }}">
                                             <span><i class="fa-solid fa-user-plus"></i></span>    
-                                            Tambah Data users</a>
-                                            </li>
-                                            <li class="nav-item"  data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
-                                            <a class="nav-link active">
+                                            Tambah Data users
+                                        </a>
+                                        </li>
+                                            <li class="nav-item"   data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
+                                            <a class="nav-link fw-bold">
                                             <span><i class="fa-solid fa-money-bill-trend-up"></i></span>    
                                             Input Target</a>
                                             </li>
                                             <li class="nav-item">
-                                            <a class="nav-link active" href="{{route('data-target')}}">
+                                            <a class="nav-link fw-bold {{ request()->is('Data-target') ? 'bg-success' : '' }} " href="{{route('data-target')}}">
                                             <span><i class="fa-solid fa-arrows-to-eye"></i></span>    
                                             Data Target</a>
                                             </li>
-                                        
-                    
+                                    
                                         </ul>
                                        
                                        
@@ -47,6 +47,7 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Role</th>
+                                        <th scope="col">Delete user</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,6 +58,12 @@
                                         <td>{{$d -> name}}</td>
                                         <td>{{$d -> email}}</td>
                                         <td>{{$d -> level}}</td>
+                                        <td>
+                                        <a href="{{route('delete-user', ['id' => $d->id])}}" class="btn" 
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
+                                            <i class="fa-solid fa-trash" style="color: #ed0707;"></i>
+                                            </a>
+                                        </td>
                                 
                                         </tr>
                                     @endforeach
@@ -99,7 +106,7 @@
             </div>
             <div class="mb-3">
                 <label for="bulan_name" class="form-label">Bulan</label>
-                <input type="text" class="form-control" name="bulan_name" value="{{old('bulan_name')}}" id="bulan_name" placeholder="input bulan saja">
+                <input type="date" class="form-control" name="bulan_name" value="{{old('bulan_name')}}" id="bulan_name" placeholder="input bulan saja">
                 @if ($errors->has('bulan_name'))
                   <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('bulan_name')}}</div>
                 @endif

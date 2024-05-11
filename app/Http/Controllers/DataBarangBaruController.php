@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use App\Models\PenghasilanModel;
+use App\Models\TargetPenghasilanModel;
 
 class DataBarangBaruController extends Controller
 {
@@ -25,12 +26,17 @@ class DataBarangBaruController extends Controller
         $totalPendapatan = PenghasilanModel::sum('pemasukan');
         $formatIncome = number_format($totalPendapatan, 2);
 
+        // panggil data target model perbulan ini
+        $bulanIni = Carbon::now()->format('m');
+        $targetPenghasilan = TargetPenghasilanModel::whereMonth('bulan', $bulanIni)->get();
+
         // Ambil data hanya jika tanggal pada kolom 'dibuat_kapan' sama dengan tanggal hari ini
         $dataTable  = DataBarangMasukModel::paginate(10);
         $barang = DataBarangMasukModel::all();
         $today      = Carbon::now()->toDateString();
         $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-        return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 'dataTable','datapenghasilan','formatIncome','dataPenghasilanKemarin'));
+        return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 
+        'dataTable','datapenghasilan','formatIncome','dataPenghasilanKemarin','targetPenghasilan'));
     }
 
     public function store(Request $request)
