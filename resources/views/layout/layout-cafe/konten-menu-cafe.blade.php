@@ -1,48 +1,28 @@
-<style>
-  .menu-master-cafe {
-    background-color:darkslategray;
-    width: 100%;
-  }
 
-  .list-menu {
-    display: flex;
-    padding: 8px;
-    gap: 25px;
-  }
-  .list-menu a {
-    background-color: blue;
-    color: white;
-    padding: 5px;
-    font-size: 12px;
-    display: flex;
-    border-radius: 5px;
-  }
-
-  .list-menu a:hover{
-    background-color:cadetblue;
-  }
-
-  .div-konten-invoice {
-    padding: 10px;
-  }
-</style>
 <div class="content-wrapper" >
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid menu-master-cafe">
-        <div class="row  ">
-          <div class="">
-          <nav class="">
-          <div class="container-fluid list-menu">
-          <a class=" nav-link {{(Request::segment(1) == 'invoice') ? 'active' : '' }} " style="gap:2px" href="{{url('cafe145/master-menu/invoice')}}"> 
-          <span><i class="fas fa-file-invoice fa-lg"></i></span>Invoice</a>
-          <a href="{{route('form-invoice')}}" class="navbar-brand" style="gap:2px"> <span><i class="fas fa-plus-square fa-lg"></i> </span> Form input invoice</a>
-          </div>
-          </nav>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+
+<div class="card-body">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul  style="gap: 7px; font-size:12px;" class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link bg-warning active" aria-current="page" href="{{route('form-invoice')}}"><span><i class="fa-solid fa-house"></i></span>Form Invoice</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link bg-warning active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page"  href="{{url('cafe145/master-menu/invoice')}}"><span><i class="fa-solid fa-user-plus"></i></span>Cek Invoice</a>
+            </li>
+        </ul>
+        </div>
     </div>
+    </nav>
+                                        
+       
+</div>
 
     <div class="div-konten-invoice">
       @yield('konten-invoice')

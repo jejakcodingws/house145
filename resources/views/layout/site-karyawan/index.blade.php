@@ -39,6 +39,10 @@
   <!-- content dashboard -->
 @yield('konten-site-karyawan')
 
+<div>
+@yield('konten-site-karyawan-blade')
+</div>
+
 
   <!-- /.content-wrapper -->
 @include('layout/footer')

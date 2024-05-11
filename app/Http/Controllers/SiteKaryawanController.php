@@ -49,7 +49,7 @@ class SiteKaryawanController extends Controller
                 'email'                         => $request -> for_email_karyawan,
                 'aktif_kerja'                   => $request -> for_tgl_mulai_kerja,
                 'tempat_tanggal_lahir'          => $request -> for_tgl_lahir_karyawan,
-                'status_karyawan'               => $request -> for_password,
+                'status_karyawan'               => $request -> for_status_karyawan,
                 'area_kerja'                    => $request -> for_departmant_karyawan,
                 'alamat_domisili'               => $request -> for_alamat_karyawan,
             ]);

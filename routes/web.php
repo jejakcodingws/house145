@@ -16,6 +16,7 @@ use App\Http\Middleware\CekLevel;
 use App\Http\Controllers\TargetPenghasilanController;
 use Symfony\Component\HttpKernel\HttpCache\Store;
 use App\Http\Controllers\SiteKaryawanController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,10 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     ->name('simpan-target');
     Route::get('/Data-target',[TargetPenghasilanController::class, 'index'])
     ->name('data-target');
+
+    // route laporan 
+    Route::get('/laporan',[LaporanController::class, 'index'])
+    ->name('laporan');
 
     
 //    route site karyawan

@@ -48,7 +48,7 @@
               </li>
               <hr style="width: 98%;">
               <li class="nav-item">
-                <a href="" class="master-data-side nav-link">
+                <a href="{{route('laporan')}}" class="master-data-side nav-link">
                 <i class="fa fa-book" aria-hidden="true"></i>
                   Laporan
                 </a>
