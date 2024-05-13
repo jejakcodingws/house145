@@ -69,7 +69,7 @@
         <div class="konten-utama-kedua border border-black">
             <p>Reservasi = {{$data[0] -> jumlah_reservasi}}pax
             <p>Per customer = Rp.<span>{{$data[0] -> nominal_per_orang}}</span>
-            <p>Total = Rp. {{ number_format($data[0]->nominal_per_orang * $data[0]->jumlah_reservasi, 3, ',', '.') }}</p>
+            <p>Total = Rp. {{ number_format($data[0]->nominal_per_orang * $data[0]->jumlah_reservasi, 2, ',', '.') }}</p>
         </div>
         <div>
             <p class="status_pelunasan">{{$data[0] -> status}}</p>

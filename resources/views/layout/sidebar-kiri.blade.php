@@ -46,13 +46,17 @@
                   Invoice <span  style="color:goldenrod; font-weight:500; font-size:20px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Print</span>
                 </a>
               </li>
+            
+              @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
               <hr style="width: 98%;">
               <li class="nav-item">
-                <a href="{{route('laporan')}}" class="master-data-side nav-link">
+                <a href="{{route('laporan')}}" class="master-data-side nav-link {{(Request::segment(1) == 'laporan') ? 'active' : '' }}">
                 <i class="fa fa-book" aria-hidden="true"></i>
                   Laporan
                 </a>
               </li>
+              @endif
+              
               <hr style="width: 98%;">
               <li class="nav-item">
                 <a href="{{route('site-karyawan')}}" 
@@ -61,8 +65,9 @@
                   Site Karyawan
                 </a>
               </li>
-              <hr style="width: 98%;">
+
               @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
+              <hr style="width: 98%;">
               <li class="nav-item">
               <a href="{{route('user-manage')}}" class="master-data-side nav-link {{(Request::segment(1) == 'User-managemant') ? 'active' : '' }}">
                 <i class="fa-solid fa-users-gear"></i>

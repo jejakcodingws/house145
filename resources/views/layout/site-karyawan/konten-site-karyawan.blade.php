@@ -23,14 +23,28 @@
                                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="{{route('site-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
+                                            <a class="nav-link active {{ request()->is('site-karyawan-145') ? 'bg-success' : '' }}  " aria-current="page" href="{{route('site-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
                                             </li>
+                                            @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
                                             <li class="nav-item">
                                             <a class="nav-link active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-karyawan')}}"><span><i class="fa-solid fa-user-plus"></i></span>Data Karyawan</a>
                                             </li>
+                                            @endif
+                                            @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
                                             <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#"><span><i class="fa-solid fa-calendar-days"></i></span>Input Absensi</a>
+                                            <a class="nav-link active {{ request()->is('site-karyawan-145/data-karyawan') ? 'bg-success' : '' }} " aria-current="page" href="{{route('data-karyawan')}}"><span><i class="fa-solid fa-clipboard-user"></i></span>Lihat Data Karyawan</a>
                                             </li>
+                                            @endif
+                                            @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
+                                            <li class="nav-item">
+                                            <a class="nav-link active  {{ request()->is('site-karyawan-145/create-absensi') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-data-absensi')}}"><span><i class="fa-solid fa-calendar-plus"></i></span>Input Absensi</a>
+                                            </li>
+                                            @endif
+                                           
+                                            <li class="nav-item">
+                                            <a class="nav-link active  {{ request()->is('site-karyawan-145/jadwal') ? 'bg-success' : '' }} " aria-current="page" href="{{route('cek-jadwal')}}"><span><i class="fa-solid fa-calendar-days"></i></span>Lihat Jadwal</a>
+                                            </li>
+                                           
                                         </ul>
                                         </div>
                                     </div>
@@ -41,31 +55,13 @@
     </div>
 
     @yield('konten-tambah-data-karyawan')
-    <table class="table table-hover">
-    <thead>
+    @yield('konten-create-absensi-karyawan')
+    <div class="konten-cek-jadwal">
+    @yield('konten-cek-jadwal')
+    </div>
+    @yield('konten-data-karyawan')
 
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">NIK</th>
-      <th scope="col">NAMA</th>
-      <th scope="col">EMAIL</th>
-      <th scope="col">AKTIF KERJA</th>
-      <th scope="col">STATUS KARYAWAN</th>
-    </tr>
-  </thead>
-  <tbody>
-  @foreach($datakaryawan as $d)
-    <tr>
-      <th scope="row">1</th>
-      <td>{{$d -> nik_karyawan}}</td>
-      <td>{{$d -> nama}}</td>
-      <td>{{$d -> email}}</td>
-      <td>{{$d -> aktif_kerja}}</td>
-      <td>{{$d -> status_karyawan}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-    </table>
+  
                                 </div>
                             </div>
      

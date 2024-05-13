@@ -35,7 +35,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
 
-
      // user managemant
      Route::get('/User-managemant',[UserManagemantController::class, 'index'])
      ->name('user-manage');
@@ -48,6 +47,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
 
      Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
      ->name('simpan-data-karyawan');
+   
 
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
@@ -59,13 +59,8 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     Route::get('/laporan',[LaporanController::class, 'index'])
     ->name('laporan');
 
-    
-//    route site karyawan
-    Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
-    ->name('site-karyawan');
-    Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
-    ->name('tambah-karyawan');
-    });
+});
+
 
 
 Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], function(){
@@ -87,6 +82,22 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::get('/cafe145/master-menu/invoice/download/{id}',[PDFController::class, 'downloadpdf'])
     ->name('downloadpdf');
     
+        
+    //    route site karyawan
+    Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
+    ->name('site-karyawan');
+
+    Route::get('/site-karyawan-145/data-karyawan',[SiteKaryawanController::class, 'data_karyawan'])
+    ->name('data-karyawan');
+    Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
+    ->name('tambah-karyawan');
+     // simpan presensi karyawan
+     Route::get('/site-karyawan-145/create-absensi',[SiteKaryawanController::class, 'form_absensi'])
+     ->name('tambah-data-absensi');
+     Route::post('/siite-karyawan-145/simpan-absensi',[SiteKaryawanController::class, 'simpan_data_absensi'])
+     ->name('simpan-data-absensi');
+     Route::get('/site-karyawan-145/jadwal',[SiteKaryawanController::class, 'cek_jadwal'])
+     ->name('cek-jadwal');
     
     // master data route
     Route::get('/master-data',[MasterDataController::class, 'index'])
