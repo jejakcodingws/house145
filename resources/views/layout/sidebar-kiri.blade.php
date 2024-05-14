@@ -59,7 +59,7 @@
               
               <hr style="width: 98%;">
               <li class="nav-item">
-                <a href="{{route('site-karyawan')}}" 
+                <a href="{{route('dashboard-karyawan')}}" 
                 class="master-data-side nav-link {{(Request::segment(1) == 'site-karyawan-145') ? 'active' : '' }}">
                 <i class="fa-solid fa-building-user"></i>
                   Site Karyawan

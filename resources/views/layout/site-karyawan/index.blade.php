@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistem Informasi Kantor</title>
+  @vite('resources/css/app.css')
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
@@ -14,6 +15,8 @@
   <!-- bootstrap 5.0 -->
   <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.css/')}}">
 
+  <!-- tailwind -->
+  
 
   <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->

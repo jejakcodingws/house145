@@ -136,4 +136,9 @@ class SiteKaryawanController extends Controller
         $datakaryawan = SiteKaryawanModel::all();
         return view('layout.site-karyawan.data-karyawan',compact('datakaryawan'));
     }
+
+    function dashboard(){
+        $datakaryawan = SiteKaryawanModel::all();
+        return view('layout.site-karyawan.konten-dashboard-site-karyawan',compact('datakaryawan'));
+    }
 }

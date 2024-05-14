@@ -5,7 +5,7 @@
     <div class="content-header">
       <div class="card shadow mb-4">
         @include('layout/flash-message')
-                                <a href="{{route('site-karyawan')}}" >
+                                <a href="{{route('dashboard-karyawan')}}" >
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">
                                     <span><i class="fa-solid fa-circle-user"></i></span>    
@@ -23,7 +23,7 @@
                                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                            <a class="nav-link active {{ request()->is('site-karyawan-145') ? 'bg-success' : '' }}  " aria-current="page" href="{{route('site-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
+                                            <a class="nav-link active {{ request()->is('site-karyawan-145') ? 'bg-success' : '' }}  " aria-current="page" href="{{route('dashboard-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
                                             </li>
                                             @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
                                             <li class="nav-item">
@@ -53,13 +53,17 @@
                                        
                                 </div>
     </div>
-
     @yield('konten-tambah-data-karyawan')
     @yield('konten-create-absensi-karyawan')
     <div class="konten-cek-jadwal">
     @yield('konten-cek-jadwal')
     </div>
     @yield('konten-data-karyawan')
+    <div>
+    @yield('konten-dashboard-site-karyawan')
+    
+
+    
 
   
                                 </div>

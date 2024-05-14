@@ -87,6 +87,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
     ->name('site-karyawan');
 
+    Route::get('/site-karyawan-145/dashboard-karyawan',[SiteKaryawanController::class, 'dashboard'])
+    ->name('dashboard-karyawan');
+
     Route::get('/site-karyawan-145/data-karyawan',[SiteKaryawanController::class, 'data_karyawan'])
     ->name('data-karyawan');
     Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])

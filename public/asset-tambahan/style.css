@@ -160,3 +160,12 @@
 .konten-cek-jadwal {
     font-size: 12px;
 }
+
+.card-site-karyawan .img-site-karyawan img {
+    width: 80%;
+    transition: opacity 1s ease-in-out;
+    
+}
+.fade-in {
+    opacity: 1;
+}
