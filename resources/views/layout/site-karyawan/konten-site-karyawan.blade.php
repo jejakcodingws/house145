@@ -74,7 +74,18 @@
     @yield('konten-tambah-data-karyawan')
     @yield('konten-create-absensi-karyawan')
     <div class="konten-cek-jadwal">
-    @yield('konten-jadwal-view')
+    @yield('konten-jadwal-januari')
+    @yield('konten-jadwal-february')
+    @yield('konten-jadwal-maret')
+    @yield('konten-jadwal-april')
+    @yield('konten-jadwal-mei')
+    @yield('konten-jadwal-juni')
+    @yield('konten-jadwal-juli')
+    @yield('konten-jadwal-agustus')
+    @yield('konten-jadwal-september')
+    @yield('konten-jadwal-oktober')
+    @yield('konten-jadwal-november')
+    @yield('konten-jadwal-desember')
     </div>
     @yield('konten-data-karyawan')
     <div>

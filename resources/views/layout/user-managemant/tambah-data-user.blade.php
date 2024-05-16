@@ -2,8 +2,6 @@
 @extends('layout/user-managemant/index')
 
 @section('konten-tambah-data-user')
-
-@include('flash-message')
 <form style="padding: 25px;" action="{{route('simpan-users')}}" method="post">
 <h6  class="text-center title-add-user">TAMBAH DATA USER BARU</h6>
     @csrf

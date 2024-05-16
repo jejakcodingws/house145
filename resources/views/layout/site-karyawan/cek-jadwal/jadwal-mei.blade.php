@@ -1,6 +1,6 @@
 @extends('layout/site-karyawan/konten-site-karyawan')
 
-@section('konten-jadwal-januari')
+@section('konten-jadwal-mei')
 
 <table class="table table-hover">
     <thead>

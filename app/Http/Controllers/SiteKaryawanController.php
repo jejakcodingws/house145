@@ -106,7 +106,7 @@ class SiteKaryawanController extends Controller
             ]);
     
             if($insert) {
-                return redirect()->route('cek-jadwal')
+                return redirect()->route('tambah-data-absensi')
                 ->with('success', 'Berhasil simpan absensi');
             }
         }
