@@ -17,7 +17,7 @@
                                         <div class="navbar-menu navbar-collapse" id="navbarSupportedContent">
                                         <ul style="gap: 5px;" class="navbar-nav me-auto mb-2  navbar-list">
                                         <li class="nav-item">
-                                        <a href="{{ route('add-users') }}" class=" fw-bold nav-link {{ request()->is('add-users') ? 'bg-success' : '' }}">
+                                        <a href="{{ route('add-users') }}" class=" fw-bold nav-link {{ request()->is('User-managemant/add-users') ? 'bg-success' : '' }}">
                                             <span><i class="fa-solid fa-user-plus"></i></span>    
                                             Tambah Data users
                                         </a>
@@ -28,7 +28,7 @@
                                             Input Target</a>
                                             </li>
                                             <li class="nav-item">
-                                            <a class="nav-link fw-bold {{ request()->is('Data-target') ? 'bg-success' : '' }} " href="{{route('data-target')}}">
+                                            <a class="nav-link fw-bold {{ request()->is('User-managemant/Data-target') ? 'bg-success' : '' }} " href="{{route('data-target')}}">
                                             <span><i class="fa-solid fa-arrows-to-eye"></i></span>    
                                             Data Target</a>
                                             </li>

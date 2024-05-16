@@ -6,18 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\SiteKaryawanModel;
 
 class UserManagemantController extends Controller
 {
     public function index(){
-
+        $datakaryawan = SiteKaryawanModel::all();
         $datauser = User::where('status', 1)->get();
-        return view('layout/user-managemant/index', compact('datauser'));
+        return view('layout/user-managemant/index', compact('datauser','datakaryawan'));
     }
 
     function create(){
+        $datakaryawan = SiteKaryawanModel::all();
         $datauser =User::where('status', 1)->get();
-        return view('layout/user-managemant/tambah-data-user',compact('datauser'));
+        return view('layout/user-managemant/tambah-data-user',compact('datauser','datakaryawan'));
     }
 
 
@@ -44,7 +46,7 @@ class UserManagemantController extends Controller
         }else{
             $insert = User::create([
                 'name'                  => strtoupper($request -> for_nama),
-                'email'                 => $request -> for_email,
+                'email'                 => $request -> for_email_karyawan,
                 'level'                  => $request -> for_level_login,
                 'password'              => $request -> for_password,
                 'dibuat_kapan'          => date('Y-m-d H:i:s'),

@@ -17,6 +17,7 @@ use App\Http\Controllers\TargetPenghasilanController;
 use Symfony\Component\HttpKernel\HttpCache\Store;
 use App\Http\Controllers\SiteKaryawanController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LihatJadwalSesuaiBulanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,21 +39,19 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      // user managemant
      Route::get('/User-managemant',[UserManagemantController::class, 'index'])
      ->name('user-manage');
-     Route::get('/add-users',[UserManagemantController::class, 'create'])
+     Route::get('User-managemant/add-users',[UserManagemantController::class, 'create'])
      ->name('add-users');
-     Route::post('/simpan/user/new',[UserManagemantController::class, 'store'])
+     Route::post('User-Managemant/simpan/user/new',[UserManagemantController::class, 'store'])
      ->name('simpan-users');
-     Route::get('/delete-user/{id}',[UserManagemantController::class, 'destroy'])
+     Route::get('User-managemant/delete-user/{id}',[UserManagemantController::class, 'destroy'])
      ->name('delete-user');
 
-     Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
-     ->name('simpan-data-karyawan');
-   
+     
 
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
     ->name('simpan-target');
-    Route::get('/Data-target',[TargetPenghasilanController::class, 'index'])
+    Route::get('User-managemant/Data-target',[TargetPenghasilanController::class, 'index'])
     ->name('data-target');
 
     // route laporan 
@@ -86,10 +85,8 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     //    route site karyawan
     Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
     ->name('site-karyawan');
-
     Route::get('/site-karyawan-145/dashboard-karyawan',[SiteKaryawanController::class, 'dashboard'])
     ->name('dashboard-karyawan');
-
     Route::get('/site-karyawan-145/data-karyawan',[SiteKaryawanController::class, 'data_karyawan'])
     ->name('data-karyawan');
     Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
@@ -101,6 +98,34 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
      ->name('simpan-data-absensi');
      Route::get('/site-karyawan-145/jadwal',[SiteKaryawanController::class, 'cek_jadwal'])
      ->name('cek-jadwal');
+     Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
+     ->name('simpan-data-karyawan');
+   
+    //  route lihat jadwal berdasarkan bulan input
+    Route::get('site-karyawan-145/lihat-jadwal/januari',[LihatJadwalSesuaiBulanController::class, 'jadwal_januari'])
+    ->name('jadwal-januari');
+    Route::get('site-karyawan-145/lihat-jadwal/februari',[LihatJadwalSesuaiBulanController::class, 'jadwal_februari'])
+    ->name('jadwal-februari');
+    Route::get('site-karyawan-145/lihat-jadwal/maret',[LihatJadwalSesuaiBulanController::class, 'jadwal_maret'])
+    ->name('jadwal-maret');
+    Route::get('site-karyawan-145/lihat-jadwal/april',[LihatJadwalSesuaiBulanController::class, 'jadwal_april'])
+    ->name('jadwal-april');
+    Route::get('site-karyawan-145/lihat-jadwal/mei',[LihatJadwalSesuaiBulanController::class, 'jadwal_mei'])
+    ->name('jadwal-mei');
+    Route::get('site-karyawan-145/lihat-jadwal/juni',[LihatJadwalSesuaiBulanController::class, 'jadwal_juni'])
+    ->name('jadwal-juni');
+    Route::get('site-karyawan-145/lihat-jadwal/juli',[LihatJadwalSesuaiBulanController::class, 'jadwal_juli'])
+    ->name('jadwal-juli');
+    Route::get('site-karyawan-145/lihat-jadwal/agustus',[LihatJadwalSesuaiBulanController::class, 'jadwal_agustus'])
+    ->name('jadwal-agustus');
+    Route::get('site-karyawan-145/lihat-jadwal/september',[LihatJadwalSesuaiBulanController::class, 'jadwal_september'])
+    ->name('jadwal-september');
+    Route::get('site-karyawan-145/lihat-jadwal/oktober',[LihatJadwalSesuaiBulanController::class, 'jadwal_oktober'])
+    ->name('jadwal-oktober');
+    Route::get('site-karyawan-145/lihat-jadwal/november',[LihatJadwalSesuaiBulanController::class, 'jadwal_november'])
+    ->name('jadwal-november');
+    Route::get('site-karyawan-145/lihat-jadwal/december',[LihatJadwalSesuaiBulanController::class, 'jadwal_december'])
+    ->name('jadwal-december');
     
     // master data route
     Route::get('/master-data',[MasterDataController::class, 'index'])

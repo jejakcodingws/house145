@@ -13,7 +13,6 @@ class SiteKaryawanController extends Controller
 {
     public function index(){
 
-
         $datakaryawan = SiteKaryawanModel::all();
         return view('layout/site-karyawan/konten-site-karyawan',compact('datakaryawan'));
     }
@@ -41,7 +40,7 @@ class SiteKaryawanController extends Controller
         
         if($validator->fails()){
             return redirect()
-            ->route('site-karyawan')
+            ->route('tambah-karyawan')
             ->withErrors($validator)->withInput();
         }else{
             $insert = SiteKaryawanModel::create([
@@ -56,7 +55,7 @@ class SiteKaryawanController extends Controller
             ]);
     
             if($insert) {
-                return redirect()->route('site-karyawan')
+                return redirect()->route('data-karyawan')
                 ->with('success', 'Success add user new');
             }
         }
@@ -64,7 +63,7 @@ class SiteKaryawanController extends Controller
         }catch (\Throwable $th) 
         { 
             return redirect()
-            ->route('site-karyawan')
+            ->route('tambah-karyawan')
             ->with('danger', $th->getMessage());
         }
     }
@@ -93,7 +92,7 @@ class SiteKaryawanController extends Controller
         
         if($validator->fails()){
             return redirect()
-            ->route('site-karyawan')
+            ->route('tambah-data-absensi')
             ->withErrors($validator)->withInput();
         }else{
             $insert = JadwalAbsensiModel::create([
@@ -107,27 +106,52 @@ class SiteKaryawanController extends Controller
             ]);
     
             if($insert) {
-                return redirect()->route('site-karyawan')
-                ->with('success', 'Berhasil simpan jadwal');
+                return redirect()->route('cek-jadwal')
+                ->with('success', 'Berhasil simpan absensi');
             }
         }
 
         }catch (\Throwable $th) 
         { 
             return redirect()
-            ->route('site-karyawan')
+            ->route('tambah-data-absensi')
             ->with('danger', $th->getMessage());
         }
     }
 
     function cek_jadwal(){
+            // Mendapatkan bulan dan tahun saat ini
+            $currentMonth = date('m');
+            $currentYear = date('Y');
+
              $datakaryawan = SiteKaryawanModel::all();
              // $barang = MasterBarangModel::where(['id' => $id])->first();
-             $dataJadwal = DB::select(
-                "SELECT data_karyawan.nik_karyawan, jadwal_absensi.hari, data_karyawan.nama, jadwal_absensi.shift, jadwal_absensi.tgl_bln_thn
-                FROM data_karyawan
-                LEFT JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan;"
-            );
+               // Menetapkan bulan Januari dan tahun saat ini
+                $january = 1;
+                $currentYear = date('Y');
+
+                // Menambahkan filter untuk bulan Januari pada query
+                $dataJadwal = DB::select(
+                    "SELECT data_karyawan.nik_karyawan, jadwal_absensi.hari, data_karyawan.nama, jadwal_absensi.shift, jadwal_absensi.tgl_bln_thn
+                    FROM data_karyawan
+                    LEFT JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan
+                    WHERE MONTH(jadwal_absensi.tgl_bln_thn) = ? AND YEAR(jadwal_absensi.tgl_bln_thn) = ?",
+                    [$january, $currentYear]
+                );
+
+                // Memeriksa apakah ada data untuk bulan Januari
+                if (empty($dataJadwal)) {
+                    // Jika tidak ada data untuk bulan Januari, Anda dapat mengatur $dataJadwal ke array kosong
+                    $dataJadwal = [];
+                }
+             // Menambahkan filter berdasarkan bulan dan tahun pada query
+            $dataJadwal = DB::select(
+            "SELECT data_karyawan.nik_karyawan, jadwal_absensi.hari, data_karyawan.nama, jadwal_absensi.shift, jadwal_absensi.tgl_bln_thn
+            FROM data_karyawan
+            LEFT JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan
+            WHERE MONTH(jadwal_absensi.tgl_bln_thn) = ? AND YEAR(jadwal_absensi.tgl_bln_thn) = ?",
+            [$currentMonth, $currentYear]
+    );
     
         return view('layout/site-karyawan/cek-jadwal',compact('dataJadwal','datakaryawan'));
     }

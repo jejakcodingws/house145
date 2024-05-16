@@ -40,10 +40,27 @@
                                             <a class="nav-link active  {{ request()->is('site-karyawan-145/create-absensi') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-data-absensi')}}"><span><i class="fa-solid fa-calendar-plus"></i></span>Input Absensi</a>
                                             </li>
                                             @endif
-                                           
-                                            <li class="nav-item">
-                                            <a class="nav-link active  {{ request()->is('site-karyawan-145/jadwal') ? 'bg-success' : '' }} " aria-current="page" href="{{route('cek-jadwal')}}"><span><i class="fa-solid fa-calendar-days"></i></span>Lihat Jadwal</a>
-                                            </li>
+                                    
+                                                <ul class="navbar-nav">
+                                                    <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Lihat Jadwal
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-januari')}}">Januari</a></li>
+                                                        <li><a class="dropdown-item" href="#">Februari</a></li>
+                                                        <li><a class="dropdown-item" href="#">Maret</a></li>
+                                                        <li><a class="dropdown-item" href="#">April</a></li>
+                                                        <li><a class="dropdown-item" href="#">Mei</a></li>
+                                                        <li><a class="dropdown-item" href="#">Juni</a></li>
+                                                        <li><a class="dropdown-item" href="#">Juli</a></li>
+                                                        <li><a class="dropdown-item" href="#">Agustus</a></li>
+                                                        <li><a class="dropdown-item" href="#">September</a></li>
+                                                        <li><a class="dropdown-item" href="#">Oktober</a></li>
+                                                        <li><a class="dropdown-item" href="#">November</a></li>
+                                                        <li><a class="dropdown-item" href="#">December</a></li>
+                                                    </ul>
+                                                </div>
                                            
                                         </ul>
                                         </div>
@@ -56,7 +73,7 @@
     @yield('konten-tambah-data-karyawan')
     @yield('konten-create-absensi-karyawan')
     <div class="konten-cek-jadwal">
-    @yield('konten-cek-jadwal')
+    @yield('konten-jadwal-januari')
     </div>
     @yield('konten-data-karyawan')
     <div>
