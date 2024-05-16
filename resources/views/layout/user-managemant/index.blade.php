@@ -27,18 +27,53 @@
 
   <!-- Navbar -->
   @include('layout/navbar-atas')
-<!-- konten navbar atas -->
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-<!-- konten sidebar kiri  -->
 @include('layout/sidebar-kiri')
 
-
-  <!-- Content Wrapper. Contains page content -->
-  <!-- content dashboard -->
 @include('layout/user-managemant/konten-user-managemant')
 
+</div>
+
+
+  <!-- input target jual -->
+<div class="modal fade" id="modalinputtarget" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Input Target Office</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      <form class="tambah-data" action="{{route('simpan-target')}}" method="post">
+        @csrf
+            <div class="mb-3">
+                <label for="target_name" class="form-label">Kode Target</label>
+                <input type="text" class="form-control" name="target_name" value="{{old('target_name')}}" id="target_name" placeholder="cth: tg-mei">
+                @if ($errors->has('target_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('target_name')}}</div>
+                @endif
+            </div>
+            <div class="mb-3">
+                <label for="bulan_name" class="form-label">Bulan</label>
+                <input type="date" class="form-control" name="bulan_name" value="{{old('bulan_name')}}" id="bulan_name" placeholder="input bulan saja">
+                @if ($errors->has('bulan_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('bulan_name')}}</div>
+                @endif
+            </div>
+            <div class="mb-3">
+                <label for="nominal_name" class="form-label">Target</label>
+                <input type="text" class="form-control" name="nominal_name" value="{{old('nominal_name')}}" id="nominal_name" placeholder="Nominal Rupiah">
+                @if ($errors->has('nominal_name'))
+                  <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('nominal_name')}}</div>
+                @endif
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- /.content-wrapper -->
 @include('layout/footer')

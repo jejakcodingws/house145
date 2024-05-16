@@ -7,7 +7,7 @@
     @csrf
 <div class="row">
   <div class="col">
-    <div class="mb-3">
+    <div class="">
       <label for="for_nama" class="form-label">Nama User</label>
       <input type="text" class="form-control" id="for_nama" name="for_nama" placeholder="Input nama user" aria-describedby="emailHelp">
     </div>

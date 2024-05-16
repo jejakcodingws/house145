@@ -71,9 +71,10 @@
                                        
                                 </div>
     </div>
+   
+    <div style="padding: 10px;" class="konten-cek-jadwal">
     @yield('konten-tambah-data-karyawan')
     @yield('konten-create-absensi-karyawan')
-    <div class="konten-cek-jadwal">
     @yield('konten-jadwal-januari')
     @yield('konten-jadwal-february')
     @yield('konten-jadwal-maret')
@@ -86,20 +87,13 @@
     @yield('konten-jadwal-oktober')
     @yield('konten-jadwal-november')
     @yield('konten-jadwal-desember')
-    </div>
-    @yield('konten-data-karyawan')
-    <div>
     @yield('konten-dashboard-site-karyawan')
-    
-
-    
-
-  
-                                </div>
-                            </div>
+    @yield('konten-data-karyawan')
+    </div>
+</div>
      
                                
-  </div>
+</div>
 
 
   

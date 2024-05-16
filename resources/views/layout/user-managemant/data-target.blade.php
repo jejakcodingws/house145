@@ -2,8 +2,7 @@
 
 @section('konten-data-target')
 <table class="table table-striped table-hover table-target">
-    <br>
-    <hr>
+ 
     <h6 class="text-center">Target sales</h6>
                                     <thead>
                                         <tr>
@@ -24,5 +23,6 @@
                                         <td>{{$d -> nominal_target}}</td>
                                         <td>{{$d -> dibuat_kapan}}</td>
                                         </tr>
+</table>
                                     @endforeach
 @endsection

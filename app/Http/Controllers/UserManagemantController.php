@@ -22,6 +22,11 @@ class UserManagemantController extends Controller
         return view('layout/user-managemant/tambah-data-user',compact('datauser','datakaryawan'));
     }
 
+    function data_user(){
+        $datakaryawan = SiteKaryawanModel::all();
+        $datauser =User::where('status', 1)->get();
+        return view('layout/user-managemant/data-user ',compact('datauser','datakaryawan'));
+    }
 
     function store(Request $request)
     {   
