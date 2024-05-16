@@ -8,7 +8,8 @@
       @include('flash-message')
 <!-- Earnings (Monthly) Card Example -->
                 </div>
-                <div class="row">
+                <marquee style="background-color:blue; color:white; font-size:20px; align-items:center; text-align:center; font-family:'Times New Roman', Times, serif; border-radius:12px;" behavior="up" scrolldelay="300" direction="up">Papan Informasi House of Tebet 145</marquee>
+                <div class="row" style="margin-top: 5vw;">
                 <div class="col detail-dashboard">
 
                     <div class="detail-dashboard-title">
