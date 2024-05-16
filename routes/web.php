@@ -104,8 +104,8 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     //  route lihat jadwal berdasarkan bulan input
     Route::get('site-karyawan-145/lihat-jadwal/januari',[LihatJadwalSesuaiBulanController::class, 'jadwal_januari'])
     ->name('jadwal-januari');
-    Route::get('site-karyawan-145/lihat-jadwal/februari',[LihatJadwalSesuaiBulanController::class, 'jadwal_februari'])
-    ->name('jadwal-februari');
+    Route::get('site-karyawan-145/lihat-jadwal/february',[LihatJadwalSesuaiBulanController::class, 'jadwal_february'])
+    ->name('jadwal-february');
     Route::get('site-karyawan-145/lihat-jadwal/maret',[LihatJadwalSesuaiBulanController::class, 'jadwal_maret'])
     ->name('jadwal-maret');
     Route::get('site-karyawan-145/lihat-jadwal/april',[LihatJadwalSesuaiBulanController::class, 'jadwal_april'])

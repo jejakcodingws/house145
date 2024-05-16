@@ -48,17 +48,18 @@
                                                     </a>
                                                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                         <li><a class="dropdown-item" href="{{route('jadwal-januari')}}">Januari</a></li>
-                                                        <li><a class="dropdown-item" href="#">Februari</a></li>
-                                                        <li><a class="dropdown-item" href="#">Maret</a></li>
-                                                        <li><a class="dropdown-item" href="#">April</a></li>
-                                                        <li><a class="dropdown-item" href="#">Mei</a></li>
-                                                        <li><a class="dropdown-item" href="#">Juni</a></li>
-                                                        <li><a class="dropdown-item" href="#">Juli</a></li>
-                                                        <li><a class="dropdown-item" href="#">Agustus</a></li>
-                                                        <li><a class="dropdown-item" href="#">September</a></li>
-                                                        <li><a class="dropdown-item" href="#">Oktober</a></li>
-                                                        <li><a class="dropdown-item" href="#">November</a></li>
-                                                        <li><a class="dropdown-item" href="#">December</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-february')}}">Februari</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-maret')}}">Maret</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-april')}}">April</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-mei')}}">Mei</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-juni')}}">Juni</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-juli')}}">Juli</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-agustus')}}">Agustus</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-september')}}">September</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-oktober')}}">Oktober</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-november')}}">November</a></li>
+                                                        <li><a class="dropdown-item" href="{{route('jadwal-december')}}">December</a></li>
+                            
                                                     </ul>
                                                 </div>
                                            
@@ -73,7 +74,7 @@
     @yield('konten-tambah-data-karyawan')
     @yield('konten-create-absensi-karyawan')
     <div class="konten-cek-jadwal">
-    @yield('konten-jadwal-januari')
+    @yield('konten-jadwal-view')
     </div>
     @yield('konten-data-karyawan')
     <div>
