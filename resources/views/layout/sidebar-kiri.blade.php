@@ -55,6 +55,15 @@
                 </a>
               </li>
 
+              <hr style="width: 98%;">
+              <li class="nav-item">
+                <a href="{{url('')}}" 
+                class="master-data-side nav-link {{(Request::segment(1) == '') ? 'active' : '' }}">
+                <i class="fa-solid fa-fingerprint"></i>
+                  Absen Staff
+                </a>
+              </li>
+
               @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
               <hr style="width: 98%;">
               <li class="nav-item">

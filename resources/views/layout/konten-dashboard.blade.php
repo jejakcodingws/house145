@@ -1,14 +1,45 @@
 
-
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-      <div class="row">
-      @include('flash-message')
-<!-- Earnings (Monthly) Card Example -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <div class="content-header">
+                    <div class="container-fluid">
+                    <div class="row">
+                    @include('flash-message')
+                <!-- Earnings (Monthly) Card Example -->
+                                </div>
+                    
+                                <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fa-solid fa-clipboard-user"></i></span>
+                <div class="info-box-content">
+                <span class="info-box-text">Absen day</span>
+                <span class="info-box-number">#</span>
                 </div>
-                <marquee style="background-color:blue; color:white; font-size:20px; align-items:center; text-align:center; font-family:'Times New Roman', Times, serif; border-radius:12px;" behavior="up" scrolldelay="300" direction="up">Papan Informasi House of Tebet 145</marquee>
+
+                </div>
+
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="fa-solid fa-user-xmark"></i></span>
+                <div class="info-box-content">
+                <span class="info-box-text">Karyawan belum absen</span>
+                <span class="info-box-number">#</span>
+                </div>
+
+                </div>
+
+                </div>
+
+
+                </div>
+
+                </div>
+
+
+                </div>
                 <div class="row" style="margin-top: 5vw;">
                 <div class="col detail-dashboard">
 
