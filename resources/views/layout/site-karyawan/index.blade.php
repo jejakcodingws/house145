@@ -24,6 +24,7 @@
   <!-- asset-tambahan -->
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
   <link rel="stylesheet" href="{{asset('asset-tambahan/style-user-managemant.css')}}">
+  <link rel="stylesheet" href="{{asset('asset-tambahan/style_site_karyawan.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -89,6 +90,9 @@
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+
+<!-- javascript site karyawan pada jadwal -->
+<script src="{{asset('asset-tambahan/js_site_karyawan.js')}}"></script>
 
 <script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
 

@@ -46,7 +46,7 @@
                                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Lihat Jadwal
                                                     </a>
-                                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                    <ul class="dropdown-menu dropdown-menu-dark" id="monthDropdown" aria-labelledby="navbarDarkDropdownMenuLink">
                                                         <li><a class="dropdown-item" href="{{route('jadwal-januari')}}">Januari</a></li>
                                                         <li><a class="dropdown-item" href="{{route('jadwal-february')}}">Februari</a></li>
                                                         <li><a class="dropdown-item" href="{{route('jadwal-maret')}}">Maret</a></li>
@@ -59,8 +59,8 @@
                                                         <li><a class="dropdown-item" href="{{route('jadwal-oktober')}}">Oktober</a></li>
                                                         <li><a class="dropdown-item" href="{{route('jadwal-november')}}">November</a></li>
                                                         <li><a class="dropdown-item" href="{{route('jadwal-december')}}">December</a></li>
-                            
                                                     </ul>
+
                                                 </div>
                                            
                                         </ul>
@@ -94,6 +94,8 @@
      
                                
 </div>
+
+
 
 
   

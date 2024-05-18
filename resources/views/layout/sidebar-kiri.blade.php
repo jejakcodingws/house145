@@ -4,25 +4,14 @@
     <!-- Brand Logo -->
     <a href="{{route('masuk')}}" class="brand-link">
     <i class="fa-solid fa-house-laptop"></i>
-      <span class="brand-text "   style="font-family: Sofia, sans-serif; padding:10px; ">Ventory 145 web</span>
+      <span class="brand-text "   style=" font-family:Georgia, 'Times New Roman', Times, serif; padding:10px; ">Ventory 145</span>
     </a>
 
     <!-- Sidebar -->
-    <div  class="side mt-2">
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+    <div  class="side">
 
       <!-- Sidebar Menu -->
-      <nav class="mt-4">
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item menu-open">
             <a href="" class="nav-link active" style="margin-left: 10px;">

@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      Route::get('User-managemant/add-users',[UserManagemantController::class, 'create'])
      ->name('add-users');
      Route::get('User-managemant/data-users',[UserManagemantController::class, 'data_user'])
-     ->name('data-user');
+     ->name('data-user');   
      Route::post('User-Managemant/simpan/user/new',[UserManagemantController::class, 'store'])
      ->name('simpan-users');
      Route::get('User-managemant/delete-user/{id}',[UserManagemantController::class, 'destroy'])
