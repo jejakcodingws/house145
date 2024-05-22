@@ -165,4 +165,23 @@ class SiteKaryawanController extends Controller
         $datakaryawan = SiteKaryawanModel::all();
         return view('layout.site-karyawan.konten-dashboard-site-karyawan',compact('datakaryawan'));
     }
+
+    public function search(Request $request){
+        $keyword = $request->input('cari');
+        $tanggal = $request->input('tanggal');
+        $karyawan = DB::table('data_karyawan')
+        ->select('data_karyawan.nik_karyawan', 'jadwal_absensi.hari', 'data_karyawan.nama', 'jadwal_absensi.shift', 'jadwal_absensi.tgl_bln_thn')
+        ->leftJoin('jadwal_absensi', 'data_karyawan.nik_karyawan', '=', 'jadwal_absensi.nik_karyawan')
+        ->where('data_karyawan.nama', 'like', "%$keyword%")
+        
+        ->get();
+        
+        // Jika tidak ada data yang ditemukan, set pesan peringatan ke dalam variabel session
+        if ($karyawan->isEmpty()) {
+            session()->flash('warning', 'Data yang Anda cari tidak ditemukan.');
+        }
+
+        
+        return view('layout.site-karyawan.hasil-pencarian',compact('karyawan'));
+    }
 }

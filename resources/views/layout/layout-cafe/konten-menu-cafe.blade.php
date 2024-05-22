@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul  style="gap: 7px; font-size:12px;" class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link bg-warning active" aria-current="page" href="{{route('form-invoice')}}"><span><i class="fa-solid fa-house"></i></span>Form Invoice</a>
+            <a class="nav-link  active" aria-current="page" href="{{route('form-invoice')}}"><span><i class="fa-solid fa-house"></i></span>Form Invoice</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link bg-warning active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page"  href="{{url('cafe145/master-menu/invoice')}}"><span><i class="fa-solid fa-user-plus"></i></span>Cek Invoice</a>
+            <a class="nav-link  active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page"  href="{{url('cafe145/master-menu/invoice')}}"><span><i class="fa-solid fa-file"></i></span>Invoice</a>
             </li>
         </ul>
         </div>
@@ -24,13 +24,14 @@
        
 </div>
 
-    <div class="div-konten-invoice">
+    <div class="div-konten-invoice" style="padding: 10px;">
       @yield('konten-invoice')
     </div>
 
     <div class="">
-        @yield('konten-form-invoice')
+        @include('layout.layout-cafe.form-invoice')
     </div>
+
     
 </div>
 

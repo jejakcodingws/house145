@@ -64,6 +64,10 @@
                                                 </div>
                                            
                                         </ul>
+                                        <form method="get" action="{{route('search')}}" class="d-flex">
+                                            <input class="form-control me-2" name="cari" type="search" placeholder="Search name karyawan" aria-label="Search">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
                                         </div>
                                     </div>
                                     </nav>
@@ -89,6 +93,7 @@
     @yield('konten-jadwal-desember')
     @yield('konten-dashboard-site-karyawan')
     @yield('konten-data-karyawan')
+    @yield('konten-hasil-pencarian')
     </div>
 </div>
      

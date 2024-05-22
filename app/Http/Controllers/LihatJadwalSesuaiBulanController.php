@@ -88,9 +88,9 @@ function jadwal_february(){
         );
     }
 
-    // Memeriksa apakah ada data untuk bulan Januari
+  
     if (empty($dataJadwal)) {
-        // Jika tidak ada data untuk bulan Januari, Anda dapat mengatur $dataJadwal ke array kosong
+       
         $dataJadwal = [];
     }
 
@@ -196,6 +196,7 @@ function jadwal_february(){
 
     $mei = 5;
     $currentYear = date('Y');
+    
     
 
     $user = Auth::user();

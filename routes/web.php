@@ -83,6 +83,10 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::get('/cafe145/master-menu/invoice/download/{id}',[PDFController::class, 'downloadpdf'])
     ->name('downloadpdf');
     
+
+    // route search form 
+    Route::get('/site-karyawan-145/search',[SiteKaryawanController::class, 'search'])
+    ->name('search');
         
     //    route site karyawan
     Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])

@@ -1,7 +1,4 @@
 
-@extends('layout/layout-cafe/index')
-@section('konten-form-invoice')
-
 <style>
     .form-invoice {
         padding: 15px;
@@ -11,7 +8,7 @@
     }
 </style>
 
-@include('layout/flash-message')
+
 <form class="form-invoice form-invoice-input" action="{{route('simpan-invoice')}}" method="post">
 @csrf
 <h3>Form Invoice</h3>
@@ -71,4 +68,3 @@
     </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-@endsection

@@ -40,7 +40,7 @@
 
 
                 </div>
-                <div class="row" style="margin-top: 5vw;">
+                <div class="row">
                 <div class="col detail-dashboard">
 
                     <div class="detail-dashboard-title">
