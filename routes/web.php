@@ -18,6 +18,7 @@ use Symfony\Component\HttpKernel\HttpCache\Store;
 use App\Http\Controllers\SiteKaryawanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LihatJadwalSesuaiBulanController;
+use App\Http\Controllers\AbsenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
      ->name('cek-jadwal');
      Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
      ->name('simpan-data-karyawan');
+
+    //  route menu absen
+    Route::get('/absen',[AbsenController::class, 'index'])->name('menu-absen');
    
     //  route lihat jadwal berdasarkan bulan input
     Route::get('site-karyawan-145/lihat-jadwal/januari',[LihatJadwalSesuaiBulanController::class, 'jadwal_januari'])

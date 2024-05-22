@@ -46,6 +46,9 @@
 <div>
 @yield('konten-site-karyawan-blade')
 </div>
+<div>
+@yield('konten-dashboard-absen')
+</div>
 
 
   <!-- /.content-wrapper -->
