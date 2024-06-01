@@ -102,7 +102,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
      Route::get('/site-karyawan-145/create-absensi',[SiteKaryawanController::class, 'form_absensi'])
      ->name('tambah-data-absensi');
      Route::post('/siite-karyawan-145/simpan-absensi',[SiteKaryawanController::class, 'simpan_data_absensi'])
-     ->name('simpan-data-absensi');
+     ->name('simpan-jadwal-absensi');
      Route::get('/site-karyawan-145/jadwal',[SiteKaryawanController::class, 'cek_jadwal'])
      ->name('cek-jadwal');
      Route::post('/simpan-data-user',[SiteKaryawanController::class, 'store'])
@@ -110,6 +110,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
 
     //  route menu absen
     Route::get('/absen',[AbsenController::class, 'index'])->name('menu-absen');
+    Route::post('/absen-store',[AbsenController::class, 'SimpanDataAbsen'])->name('simpan-data-absensi');
    
     //  route lihat jadwal berdasarkan bulan input
     Route::get('site-karyawan-145/lihat-jadwal/januari',[LihatJadwalSesuaiBulanController::class, 'jadwal_januari'])

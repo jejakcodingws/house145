@@ -7,10 +7,30 @@
     @csrf
 <div class="row">
   <div class="col">
-    <div class="">
-      <label for="for_nama" class="form-label">Nama User</label>
-      <input type="text" class="form-control" id="for_nama" name="for_nama" placeholder="Input nama user" aria-describedby="emailHelp">
-    </div>
+    <label for="for_nik" class="form-label">NIK</label>
+        <div class="input-group mb-3">
+            <select class="form-select" name="for_nik" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                @foreach ($datakaryawan as $d)
+                <option value="{{ $d -> nik_karyawan}}"></span>{{$d -> nik_karyawan}}</option>
+                @endforeach
+            </select>
+            @if ($errors->has('for_nik'))
+            <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_nik')}}</div>
+            @endif
+        </div>
+        <label for="for_nama" class="form-label">Nama User</label>
+        <div class="input-group mb-3">
+            <select class="form-select" name="for_nama" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                @foreach ($datakaryawan as $d)
+                <option value="{{ $d -> nama}}"></span>{{$d -> nama}}</option>
+                @endforeach
+            </select>
+            @if ($errors->has('for_nama'))
+            <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_nama')}}</div>
+            @endif
+        </div>
     <label for="for_hari" class="form-label">email</label>
         <div class="input-group mb-3">
             <select class="form-select" name="for_email_karyawan" id="inputGroupSelect01">

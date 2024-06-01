@@ -8,6 +8,7 @@
                                     <thead>
                                         <tr>
                                         <th scope="col">id</th>
+                                        <th scope="col">NIK</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Role</th>
@@ -19,6 +20,7 @@
                                     @foreach($datauser as $d)
                                         <tr>
                                         <th scope="row">{{$loop -> iteration}}</th>
+                                        <td>{{$d -> nik_karyawan}}</td>
                                         <td>{{$d -> name}}</td>
                                         <td>{{$d -> email}}</td>
                                         <td>{{$d -> level}}</td>

@@ -1,7 +1,7 @@
 @extends('layout/site-karyawan/konten-site-karyawan')
 
 @section('konten-create-absensi-karyawan')
-<form action="{{route('simpan-data-absensi')}}" method="post" class="form-create-absensi-karyawan">
+<form action="{{route('simpan-jadwal-absensi')}}" method="post" class="form-create-absensi-karyawan">
     @csrf
 <div class="row">
     <div class="col">

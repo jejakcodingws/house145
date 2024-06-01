@@ -16,7 +16,12 @@
   <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.css/')}}">
 
   <!-- tailwind -->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
   
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-xodZBntMqpLZRrs+eumExiwqYfNYq1c+9z1P2RI7UVdJGnJ/Q0c1HfC3J60Q91ZL" crossorigin=""/>
+
 
   <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
@@ -99,7 +104,9 @@
 
 <script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-4P7vnWW0Pf5iQmAn1ElgRXNpt+Fqq43sYY4h/C6T8bQ/OQs4Eaw1URTzAiTzJmxg" crossorigin=""></script>
 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 <!-- fontawesome -->
 <script src="{{asset('assets/plugins/fontawesome-free/js/all.min.js')}}"></script>

@@ -50,6 +50,7 @@ class UserManagemantController extends Controller
             ->withErrors($validator)->withInput();
         }else{
             $insert = User::create([
+                'nik_karyawan'          => ($request -> for_nik),
                 'name'                  => strtoupper($request -> for_nama),
                 'email'                 => $request -> for_email_karyawan,
                 'level'                  => $request -> for_level_login,
