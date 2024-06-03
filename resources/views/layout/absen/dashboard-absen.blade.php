@@ -7,7 +7,7 @@
         font-size: 9px;
     }
     table tbody tr td {
-        font-size: 9px;
+        font-size: 10px;
     }
     form .row label {
         font-size: 12px;
@@ -24,8 +24,6 @@
             <div class="row">
                 @include('flash-message')
             </div>
-            
-            <h5 class="text-center">ABSEN KARYAWAN</h5>
             <form action="{{ route('simpan-data-absensi') }}" method="post" class="form-absensi">
                 @csrf
                 <div class="row">
@@ -56,27 +54,31 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>NO</th>
                                 <th>HARI</th>
                                 <th>NIK</th>
                                 <th>NAMA</th>
                                 <th>JAM MASUK</th>
+                                <th>SHIFT</th>
                                 <th>JAM PULANG</th>
                                 <th>KETERANGAN</th>
-                                <th>STATUS ABSEN</th>
+                                <th style="width: 5px;">STATUS ABSEN</th>
                                 <th style="display: none;">LATITUDE</th>
                                 <th style="display: none;">LONGITUDE</th>
+                                <th styl>DEVICE USER</th>
                                 <th>LOKASI</th>
-                                <th>MAP</th>
-                                <th>DEVICE TYPE</th> <!-- Tambahkan kolom untuk Device Type -->
+                                <th>MAP</th> <!-- Tambahkan kolom untuk Device Type -->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($dataAbsen as $absen)
                                 <tr>
+                                    <td>{{ $loop -> iteration }}</td>
                                     <td>{{ $absen->hari }}</td>
                                     <td>{{ $absen->nik_karyawan }}</td>
                                     <td>{{ $absen->nama }}</td>
                                     <td>{{ $absen->jam_masuk }}</td>
+                                    <td>{{ $absen->shift }}</td>
                                     <td>{{ $absen->jam_keluar }}</td>
                                     <td>{{ $absen->keterangan_absen }}</td>
                                     <td>{{ $absen->status_absen }}</td>
@@ -84,10 +86,10 @@
                                     <td style="display: none;">{{ $absen->longitude }}</td>
                                     <td>{{ $absen->device_type }}</td>
                                     <td>
-                                        <textarea style="display: flex; width:25vh; height:35vh;" id="location_details_{{ $absen->id }}" class="form-control" rows="3" readonly></textarea>
+                                        <textarea style="display: flex; width:15vh; height:15vh;" id="location_details_{{ $absen->id }}" class="form-control" rows="3" readonly></textarea>
                                     </td>
                                     <td>
-                                        <div style="width: 20vh;  height:35vh;" id="map_{{ $absen->id }}" class="map"></div>
+                                        <div style="width: 20vh;  height:15vh;" id="map_{{ $absen->id }}" class="map"></div>
                                     </td>
                                     <!-- Tampilkan device type -->
                                 </tr>

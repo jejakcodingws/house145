@@ -58,7 +58,7 @@
               <hr style="width: 98%;">
               <li class="nav-item">
                 <a href="{{route('menu-absen')}}" 
-                class="master-data-side nav-link {{(Request::segment(1) == '') ? 'active' : '' }}">
+                class="master-data-side nav-link {{(Request::segment(1) == 'absen') ? 'active' : '' }}">
                 <i class="fa-solid fa-fingerprint"></i>
                   Absen Staff
                 </a>
