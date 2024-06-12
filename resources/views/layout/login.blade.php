@@ -93,6 +93,18 @@
 		margin-top: 10px;
         padding: 10px;
 	}
+
+
+
+  /* style lain */
+
+  #timer {
+            font-size: 2em;
+        }
+  #timer1 {
+            font-size: 2em;
+        }
+  
  
  
 </style>
@@ -100,45 +112,28 @@
 
     
   </head>
-  <body class="text-center login-body">
-    
-
-  <div class="row login-site">
-
-  <div class="col form-login">
-    <main class="form-signin  form-login-site">
-      <form class="form-input-login" action="{{route('enter-login')}}" method="post">
-        @csrf
-        <h1 class="h3 mb-3 fw-normal" style="color: black; font-weight:700px;">Login</h1>
-        {{$errors->first('email')}}
-        <div class="form-floating">
-          <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
-        <br>
-
-        <div class="form-floating">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-          <label for="password">Password</label>
-          <span toggle="#password" class="eye field-icon toggle-password"><i class="fa fa-eye"></i></span>
-        </div>
-        <br>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
-      </form>
-      <p class="">
-        Tebet 145
-      </p>
-  </main>
-      </div>
+  <body>
+    <section class="container">
+        <div class="login-container">
+            <div class="circle circle-one"></div>
+            <div class="form-container">
+                <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+                <h1 class="opacity">LOGIN</h1>
+                <form class="form-input-login" action="{{route('enter-login')}}" method="post">
+                  @csrf
+                {{$errors->first('email')}}
+                    <input type="text" name="email" placeholder="EMAIL" />
+                    <input type="password" name="password" placeholder="PASSWORD" />
+                    <button class="opacity">SUBMIT</button>
+                </form>
 
       <div class="col marq-title">
                                         <div class="jam-digital-malasngoding">
                                             <div class="kotak">
-                                                <p id="jam"></p>
+                                                <p id="jam"></p><span id="timer1">:</span>
                                             </div>
                                             <div class="kotak">
-                                                <p id="menit"></p>
+                                                <p id="menit"></p><span id="timer">:</span>
                                             </div>
                                             <div class="kotak">
                                                 <p id="detik"></p>
@@ -146,15 +141,12 @@
                                         </div>
         </div>
       </div>
-
-
-
-  </div>
-
-
-
-    
-  </body>
+            </div>
+            <div class="circle circle-two"></div>
+        </div>
+        <div class="theme-btn-container"></div>
+    </section>
+</body>
 
 
   <script>
@@ -178,4 +170,92 @@
         }
       </script>
 
+<script>
+        // Function to toggle the visibility of the colon
+        function toggleColon() {
+            const timerElement = document.getElementById('timer');
+            // Toggle visibility based on current visibility state
+            if (timerElement.style.visibility === 'hidden') {
+                timerElement.style.visibility = 'visible';
+            } else {
+                timerElement.style.visibility = 'hidden';
+            }
+        }
+
+        // Set interval to call the toggleColon function every second
+        setInterval(toggleColon, 1000);
+    </script>
+
+<script>
+        // Function to toggle the visibility of the colon
+        function toggleColon() {
+            const timerElement = document.getElementById('timer1');
+            // Toggle visibility based on current visibility state
+            if (timerElement.style.visibility === 'hidden') {
+                timerElement.style.visibility = 'visible';
+            } else {
+                timerElement.style.visibility = 'hidden';
+            }
+        }
+
+        // Set interval to call the toggleColon function every second
+        setInterval(toggleColon, 1000);
+    </script>
+
+<script>
+  const themes = [
+    {
+        background: "#1A1A2E",
+        color: "#FFFFFF",
+        primaryColor: "#0F3460"
+    },
+    {
+        background: "#461220",
+        color: "#FFFFFF",
+        primaryColor: "#E94560"
+    },
+    {
+        background: "#192A51",
+        color: "#FFFFFF",
+        primaryColor: "#967AA1"
+    },
+    {
+        background: "#F7B267",
+        color: "#000000",
+        primaryColor: "#F4845F"
+    },
+    {
+        background: "#F25F5C",
+        color: "#000000",
+        primaryColor: "#642B36"
+    },
+    {
+        background: "#231F20",
+        color: "#FFF",
+        primaryColor: "#BB4430"
+    }
+];
+
+const setTheme = (theme) => {
+    const root = document.querySelector(":root");
+    root.style.setProperty("--background", theme.background);
+    root.style.setProperty("--color", theme.color);
+    root.style.setProperty("--primary-color", theme.primaryColor);
+    root.style.setProperty("--glass-color", theme.glassColor);
+};
+
+const displayThemeButtons = () => {
+    const btnContainer = document.querySelector(".theme-btn-container");
+    themes.forEach((theme) => {
+        const div = document.createElement("div");
+        div.className = "theme-btn";
+        div.style.cssText = `background: ${theme.background}; width: 25px; height: 25px`;
+        btnContainer.appendChild(div);
+        div.addEventListener("click", () => setTheme(theme));
+    });
+};
+
+displayThemeButtons();
+
+</script>
 </html>

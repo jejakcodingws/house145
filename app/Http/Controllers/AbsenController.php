@@ -35,8 +35,7 @@ class AbsenController extends Controller
                 jadwal_absensi.shift
             FROM data_karyawan
             INNER JOIN absensi ON data_karyawan.nik_karyawan = absensi.nik_karyawan
-            INNER JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan AND absensi.hari = jadwal_absensi.hari
-            WHERE DATE(absensi.jam_masuk) = ?
+            INNER JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan  WHERE DATE(absensi.jam_masuk) = ?
         ", [$today]);
     
         // Update keterangan_absen if jam_keluar is not filled
