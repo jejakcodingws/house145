@@ -19,12 +19,26 @@ class DataBarangBaruController extends Controller
         $tanggal_kemarin = carbon::yesterday()->toDateString();
         $tanggal_hari_ini = Carbon::today()->toDateString();
 
+            // Mendapatkan bulan dan tahun saat ini
+      $currentMonth = Carbon::now()->month;
+      $currentYear = Carbon::now()->year;
+
          // Ambil tanggal hari ini
         $dataPenghasilanKemarin = PenghasilanModel::whereDate('tanggal', $tanggal_kemarin)->get();
         $datapenghasilan = PenghasilanModel::whereDate('tanggal', $tanggal_hari_ini)->get();
          
-        $totalPendapatan = PenghasilanModel::sum('pemasukan');
-        $formatIncome = number_format($totalPendapatan, 2);
+       // Menjumlahkan nilai dari kolom 'pemasukan' di tabel 'penghasilan' berdasarkan bulan dan tahun saat ini
+            $totalPendapatanBulanIni = PenghasilanModel::whereYear('dibuat_kapan', $currentYear)
+            ->whereMonth('dibuat_kapan', $currentMonth)
+            ->sum('pemasukan');
+
+        $totalPendapatanTahunIni = PenghasilanModel::whereYear('dibuat_kapan', $currentYear)
+            ->sum('pemasukan');
+
+
+        $formatIncome = number_format($totalPendapatanBulanIni, 2);
+        $formatIncomeTahun = number_format($totalPendapatanTahunIni, 2);
+
 
         // panggil data target model perbulan ini
         $bulanIni = Carbon::now()->format('m');
@@ -36,7 +50,7 @@ class DataBarangBaruController extends Controller
         $today      = Carbon::now()->toDateString();
         $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
         return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 
-        'dataTable','datapenghasilan','formatIncome','dataPenghasilanKemarin','targetPenghasilan'));
+        'dataTable','datapenghasilan','formatIncome','formatIncomeTahun','dataPenghasilanKemarin','targetPenghasilan'));
     }
 
     public function store(Request $request)

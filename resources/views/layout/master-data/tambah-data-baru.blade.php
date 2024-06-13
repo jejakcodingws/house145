@@ -53,6 +53,6 @@
                   <div style="background-color: red;" class="badge text-bg-danger">{{$errors->first('for_satuan')}}</div>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
 @endsection

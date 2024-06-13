@@ -143,7 +143,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     ->name('master-data');
     
     // route modal master data
-    Route::get('/tambah-data',[DataBarangBaruController::class, 'index'])
+    Route::get('/master-data/tambah-data',[DataBarangBaruController::class, 'index'])
     ->name('tambah-data-baru');
     
     Route::post('/simpan-data',[DataBarangBaruController::class, 'store'])

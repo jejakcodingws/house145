@@ -71,19 +71,18 @@
             <h5 class="description-header">
             Rp {{ $formatIncome }}
             </h5>
-            <span class="description-text text-xs">Total Pendapatan </span>
+            <span class="description-text text-xs">Pendapatan Bulanan</span>
             </div>
 
             </div>
 
             <div class="col-sm-3 col-6">
             <div class="description-block border-right">
-            @foreach ($dataPenghasilanKemarin as $d)
-            <h5 class="description-header">Rp {{ number_format($d->pemasukan, 0, ',', '.') }}</h5>
-            @endforeach
-            <span class="description-text text-xs">Pendapatan kemarin</span>
+            <h5 class="description-header">
+            Rp {{ $formatIncomeTahun }}
+            </h5>
+            <span class="description-text text-xs">Pendapatan Tahunan</span>
             </div>
-
             </div>
 
             <div class="col-sm-3 col-6">
@@ -106,6 +105,8 @@
             </div>
 
             </div>
+
+           
             </div>
 
             </div>
