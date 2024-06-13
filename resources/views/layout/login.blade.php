@@ -124,7 +124,7 @@
                 {{$errors->first('email')}}
                     <input type="text" name="email" placeholder="EMAIL" />
                     <input type="password" name="password" placeholder="PASSWORD" />
-                    <button class="opacity">SUBMIT</button>
+                    <button class="opacity">SIGN IN</button>
                 </form>
 
       <div class="col marq-title">

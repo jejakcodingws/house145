@@ -111,6 +111,12 @@
 .img-dashboard img {
     width: 80%;
 }
+
+.data-list-nama {
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 10px;
+}
 .detail-dashboard {
     display: flex;
     flex-direction: column;

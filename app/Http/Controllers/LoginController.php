@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PenghasilanModel;
 use Carbon\Carbon;
-
+use App\Models\AbsensiKaryawanModel;
+use App\Models\SiteKaryawanModel;
 
 class LoginController extends Controller
 {
@@ -15,7 +16,19 @@ class LoginController extends Controller
     }
 
     public function masuk(){
-        return view ('index');
+        $today = Carbon::today();
+        $countAbsensi = AbsensiKaryawanModel::whereDate('jam_masuk', $today)->count();
+
+        $dataKaryawanSudahAbsen = AbsensiKaryawanModel::whereDate('jam_masuk',$today)
+                                                        ->pluck('nik_karyawan')
+                                                        ->toArray('nik_karyawan');
+
+        $sudahAbsen = SiteKaryawanModel::whereIn('nik_karyawan',$dataKaryawanSudahAbsen)->get();
+        $belumAbsen = SiteKaryawanModel::whereNotIn('nik_karyawan',$dataKaryawanSudahAbsen)->get();
+
+
+        return view ('index',compact('countAbsensi','sudahAbsen','belumAbsen'));
+
     }
 
 
