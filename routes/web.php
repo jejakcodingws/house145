@@ -67,6 +67,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     Route::get('/laporan/laporan-pendapatan/filter',[LaporanController::class, 'filter'])
     ->name('filterRpendapatan');
 
+    Route::post('/laporan/laporan-pendapatan/downloadPDF',[LaporanController::class, 'downloadPDF'])
+    ->name('downloadPDF');
+
 });
 
 

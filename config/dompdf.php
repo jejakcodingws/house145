@@ -11,6 +11,15 @@ return array(
     | in dompdf_config.inc.php. You can also override the entire config file.
     |
     */
+    'show_warnings' => false,
+    'orientation' => 'portrait',
+    'defines' => [
+        'DOMPDF_FONT_DIR' => storage_path('fonts/'), // Direktori font
+        'DOMPDF_FONT_CACHE' => storage_path('fonts/'),
+        // tambahkan konfigurasi lainnya sesuai kebutuhan
+    ],
+    // pengaturan lainnya...
+
     'show_warnings' => false,   // Throw an Exception on warnings from dompdf
 
     'public_path' => null,  // Override the public path if needed

@@ -89,6 +89,9 @@
                                     <div class="section-konten p-2 text-center">
                                             @yield('kontenRpendapatan')
                                     </div>
+                                    <div class="section-konten p-2 text-center">
+                                            @yield('kontenGenerateLaporanPDF')
+                                    </div>
                                     
 
 
