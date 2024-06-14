@@ -22,18 +22,14 @@
                 <option value="11" {{ request('bulan') == '11' ? 'selected' : '' }}>November</option>
                 <option value="12" {{ request('bulan') == '12' ? 'selected' : '' }}>Desember</option>
             </select>
-        </div>
-    <button type="submit" class="btn btn-primary">Filter</button>
+        </div> <button type="submit" class="btn btn-primary">Filter</button>
 </form>
 
 </div>
-
-<div class="downloadPDF" style="display:  flex; width:auto; justify-content:flex-start; align-items:center; text-align:right;">
 @if(isset($bulan))
-        <form style="display:flex; justify-content:end;" action="{{ route('downloadPDF') }}" method="POST">
+        <form action="{{ route('downloadPDF') }}" method="POST">
             @csrf
             <input type="hidden" name="bulan" value="{{ $bulan }}">
             <button class="bg-warning" type="submit"><span>Download</span><i class="fa-solid fa-file-pdf pl-2 "></i></button>
         </form>
 @endif
-</div>

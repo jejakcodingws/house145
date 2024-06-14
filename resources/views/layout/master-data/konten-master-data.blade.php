@@ -265,8 +265,9 @@
                 <input type="date" class="form-control" name="for_date" id="for_date" placeholder="input dengan angka">
             </div>
             <div class="mb-3">
-                <label for="for_pemasukan_hari_ini" class="form-label">Pemasukan hari ini</label>
+                <label id="pemasukan" for="for_pemasukan_hari_ini" class="form-label">Pemasukan hari ini</label>
                 <input type="text" class="form-control" name="for_pemasukan_hari_ini" id="for_pemasukan_hari_ini" placeholder="Input Rupiah / Total duit masuk">
+                <input type="hidden" id="pemasukan_hari_ini" name="pemasukan_hari_ini">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -274,6 +275,37 @@
     </div>
   </div>
 </div>
+
+<!-- Tambahkan di resources/views/your_view.blade.php -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var displayInput = document.getElementById('for_pemasukan_hari_ini');
+        var hiddenInput = document.getElementById('pemasukan_hari_ini');
+        
+        displayInput.addEventListener('keyup', function (e) {
+            var value = this.value.replace(/[^,\d]/g, '').toString();
+            var originalValue = value.replace(/\./g, ''); // Nilai asli tanpa format
+
+            // Update nilai asli di input tersembunyi
+            hiddenInput.value = originalValue;
+
+            var split = value.split(',');
+            var sisa = split[0].length % 3;
+            var rupiah = split[0].substr(0, sisa);
+            var ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+            
+            if (ribuan) {
+                var separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+            
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            this.value = 'Rp ' + rupiah;
+        });
+    });
+</script>
+
+
 <!-- end modal pendapatan keluar -->
 
 

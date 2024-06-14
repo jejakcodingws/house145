@@ -35,14 +35,14 @@ class PendapatanController extends Controller
             $insert = PenghasilanModel::create([
                 'hari'                  => strtoupper($request -> for_hari),
                 'tanggal'               => $request -> for_date,
-                'pemasukan'             => $request -> for_pemasukan_hari_ini,
+                'pemasukan'             => $request -> pemasukan_hari_ini,
                 'dibuat_kapan'          => date('Y-m-d H:i:s'),
                 'dibuat_oleh'           => Auth::user()->name,
             ]);
     
             if($insert) {
                 return redirect()->route('master-data')
-                ->with('success', 'berhasil simpan data');
+                ->with('success', 'Pendapatan sebesar '.$request -> for_pemasukan_hari_ini.' Berhasil di simpan');
             }
         }
 
