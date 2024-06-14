@@ -7,9 +7,8 @@
 @endif
 <form action="{{ route('filterRpendapatan') }}" method="GET">
     <div class="form-group">
-        <label for="bulan">Filter Berdasarkan Bulan</label>
         <select id="bulan" name="bulan" class="form-control" required>
-            <option>Filter...</option>
+            <option>Filter Berdasarkan Bulan...</option>
             <option value="01">Januari</option>
             <option value="02">Februari</option>
             <option value="03">Maret</option>
@@ -28,3 +27,9 @@
 </form>
 
 </div>
+
+<a style="display: flex; justify-content:center; align-items:center; text-align:center; font-size:30px" href="">
+<div >
+<i class="fa-solid fa-file-pdf"></i>
+</div>
+</a>
