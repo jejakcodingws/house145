@@ -149,6 +149,25 @@
 /* end footer style */
 
 
+/* style laporan */
+
+.small-box-footer p {
+    color: black;
+}
+.small-box-footer h3 {
+    color: black;
+}
+
+
+/* style filterRlaporan */
+.filter {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+
 /* style karyawan start */
     .form-tambah-data-karyawan {
         padding: 15px;

@@ -118,6 +118,7 @@
             <div class="circle circle-one"></div>
             <div class="form-container">
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+                <marquee class="opacity text-center" style="font-size: 22px;">Tebet Integrated Management System</marquee>
                 <h1 class="opacity">LOGIN</h1>
                 <form class="form-input-login" action="{{route('enter-login')}}" method="post">
                   @csrf

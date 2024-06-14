@@ -61,6 +61,12 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     Route::get('/laporan',[LaporanController::class, 'index'])
     ->name('laporan');
 
+    Route::get('/laporan/laporan-pendapatan',[LaporanController::class, 'Rpendapatan'])
+    ->name('Rpendapatan');
+
+    Route::get('/laporan/laporan-pendapatan/filter',[LaporanController::class, 'filter'])
+    ->name('filterRpendapatan');
+
 });
 
 

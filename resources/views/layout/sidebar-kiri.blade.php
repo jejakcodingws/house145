@@ -4,7 +4,7 @@
     <!-- Brand Logo -->
     <a href="{{route('masuk')}}" class="brand-link">
     <i class="fa-solid fa-house-laptop"></i>
-      <span class="brand-text "   style=" font-family:Georgia, 'Times New Roman', Times, serif; padding:10px; ">Ventory 145</span>
+      <span class="brand-text "   style=" font-family:Georgia, 'Times New Roman', Times, serif; padding:px; font-size:10px; color:white; ">Tebet Integrated Management System</span>
     </a>
 
     <!-- Sidebar -->

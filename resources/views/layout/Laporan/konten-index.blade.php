@@ -6,6 +6,7 @@
     <div class="content-header">
       <div class="card shadow mb-4">
         @include('layout/flash-message')
+        
                                 <a href="#" >
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">
@@ -22,11 +23,13 @@
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">
+                                    
+                                    <a href="{{route('Rpendapatan')}}" class="small-box-footer nav-link  {{ request()->is('laporan/laporan-pendapatan') ? 'bg-white' : '' }} ">
                                     <div class="inner">
                                     <h3><i class="fa-solid fa-hand-holding-dollar"></i></h3>
                                     <p>Laporan Pendapatan</p>
                                     </div></a>
+                                    
                                     </div>
                                     </div>
 
@@ -74,13 +77,19 @@
                                     
                                                                     </div>
                                                                 </div>
+
+                                                         
                                         
                                                                 
                                     </div>
 
 
                                     
-  
+
+                                    <div class="section-konten p-2 text-center">
+                                            @yield('kontenRpendapatan')
+                                    </div>
+                                    
 
 
 
