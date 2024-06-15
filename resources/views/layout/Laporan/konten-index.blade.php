@@ -38,7 +38,7 @@
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">
+                                    <a href="{{route('Rbarang')}}" class="small-box-footer {{ request()->is('laporan/laporan-barang') ? 'bg-white' : '' }}  ">
                                     <div class="inner">
                                     <h3><i class="fa-solid fa-cubes"></i></h3>
                                     <p>Laporan Barang</p>
@@ -51,7 +51,7 @@
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">
+                                    <a href="{{route('Rabsensi')}}" class="small-box-footer">
                                     <div class="inner">
                                     <h3><i class="fa-solid fa-fingerprint"></i></h3>
                                     <p>Laporan Absensi</p>
@@ -88,14 +88,9 @@
 
                                     <div class="section-konten p-2 text-center">
                                             @yield('kontenRpendapatan')
-                                    </div>
-                                    <div class="section-konten p-2 text-center">
                                             @yield('kontenGenerateLaporanPDF')
+                                            @yield('kontenRbarang')
+                                            @yield('kontenRabsensi')
                                     </div>
                                     
-
-
-
-
-
                                     @endsection

@@ -60,16 +60,18 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     // route laporan 
     Route::get('/laporan',[LaporanController::class, 'index'])
     ->name('laporan');
-
     Route::get('/laporan/laporan-pendapatan',[LaporanController::class, 'Rpendapatan'])
     ->name('Rpendapatan');
-
     Route::get('/laporan/laporan-pendapatan/filter',[LaporanController::class, 'filter'])
     ->name('filterRpendapatan');
-
     Route::post('/laporan/laporan-pendapatan/downloadPDF',[LaporanController::class, 'downloadPDF'])
     ->name('downloadPDF');
-
+    Route::get('/laporan/laporan-barang',[LaporanController::class, 'Rbarang'])
+    ->name('Rbarang');
+    Route::get('/laporan/laporan-barang',[LaporanController::class, 'Rbarang'])
+    ->name('Rbarang');
+    Route::get('/laporan/laporan-absensi',[LaporanController::class, 'Rabsensi'])
+    ->name('Rabsensi');
 });
 
 
