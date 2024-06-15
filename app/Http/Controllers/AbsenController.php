@@ -14,9 +14,10 @@ class AbsenController extends Controller
     public function index() {
         // Get today's date
         $today = date('Y-m-d');
-    
+        $loggedInKaryawan = Auth::user(); // Mendapatkan data karyawan yang login
         // Fetch data_karyawan as before
-        $dataKaryawan = SiteKaryawanModel::all();
+
+        $dataKaryawan = SiteKaryawanModel::where('nik_karyawan', $loggedInKaryawan->nik_karyawan)->get();
     
         // Fetch dataAbsen with filtering by today's date and include shift column from jadwal_absensi
         $dataAbsen = DB::select("

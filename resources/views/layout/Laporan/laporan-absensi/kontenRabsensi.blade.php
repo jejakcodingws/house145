@@ -45,7 +45,7 @@
             @if(is_null($dA->jam_masuk) && is_null($dA->jam_keluar))
                 karyawan alpha
             @elseif(is_null($dA->jam_masuk) || is_null($dA->jam_keluar))
-                <span class="bg-danger p-1 rounded">Absen tidak lengkap</span>
+                <span class="bg-danger p-1 rounded">Absen Keluar</span>
             @else
                 <span class="rounded bg-success p-1">{{ $dA->keterangan_absen }}</span>
             @endif

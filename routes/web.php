@@ -72,6 +72,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     ->name('Rbarang');
     Route::get('/laporan/laporan-absensi',[LaporanController::class, 'Rabsensi'])
     ->name('Rabsensi');
+    
+    Route::get('/laporan/laporan-absensi',[LaporanController::class, 'Rabsensi'])
+    ->name('Rabsensi');
 });
 
 

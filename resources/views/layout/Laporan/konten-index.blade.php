@@ -51,7 +51,7 @@
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="{{route('Rabsensi')}}" class="small-box-footer">
+                                    <a href="{{route('Rabsensi')}}" class="small-box-footer {{ request()->is('laporan/laporan-absensi') ? 'bg-white' : '' }}">
                                     <div class="inner">
                                     <h3><i class="fa-solid fa-fingerprint"></i></h3>
                                     <p>Laporan Absensi</p>
