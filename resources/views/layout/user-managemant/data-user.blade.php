@@ -1,5 +1,4 @@
 @extends('layout/user-managemant/index')
-
 @section('konten-data-target')
 
     <!-- Content Header (Page header) -->
@@ -13,6 +12,7 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Delete user</th>
+                                        <th scope="col">Update password</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -24,12 +24,19 @@
                                         <td>{{$d -> name}}</td>
                                         <td>{{$d -> email}}</td>
                                         <td>{{$d -> level}}</td>
-                                        <td>
+                                        <td style="width: 15px;">
                                         <a href="{{route('delete-user', ['id' => $d->id])}}" class="btn" 
                                             onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
                                             <i class="fa-solid fa-trash" style="color: #ed0707;"></i>
-                                            </a>
+                                        </a>
                                         </td>
+                                        <td style="width: 15px;">
+                                        <a href="{{route('ubah-password', ['id' => $d->id])}}" class="btn" 
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
+                                            <i class="fa-solid fa-unlock-keyhole" style="color: #74C0FC;"></i>
+                                        </a>
+                                        </td>
+                                      
                                 
                                         </tr>
                                     @endforeach

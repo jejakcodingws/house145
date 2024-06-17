@@ -53,6 +53,7 @@
                                    @yield('konten-data-user')
                                    @yield('konten-tambah-data-user')
                                    @yield('konten-data-target') 
+                                   @yield('konten-update-password') 
                               
                                 
                                 </div>

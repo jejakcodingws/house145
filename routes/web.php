@@ -48,6 +48,11 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      ->name('simpan-users');
      Route::get('User-managemant/delete-user/{id}',[UserManagemantController::class, 'destroy'])
      ->name('delete-user');
+     Route::get('User-managemant/ubah-password/{id}',[UserManagemantController::class, 'updatePasswordRoute'])
+     ->name('ubah-password');
+
+     Route::post('User-managemant/simpan-password',[UserManagemantController::class, 'simpanUpdatePassword'])
+     ->name('simpan-password');
 
      
 
@@ -72,7 +77,6 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
     ->name('Rbarang');
     Route::get('/laporan/laporan-absensi',[LaporanController::class, 'Rabsensi'])
     ->name('Rabsensi');
-    
     Route::get('/laporan/laporan-absensi',[LaporanController::class, 'Rabsensi'])
     ->name('Rabsensi');
 });
@@ -112,6 +116,12 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     ->name('data-karyawan');
     Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
     ->name('tambah-karyawan');
+    // update data karyawan 
+    Route::get('/site-karyawan-145/data-karyawan/update/{id}',[SiteKaryawanController::class, 'update'])
+    ->name('update-data-karyawan');
+    Route::post('/site-karyawan-145/data-karyawan/update/{id}',[SiteKaryawanController::class, 'simpan-update'])
+    ->name('simpan-update-data-karyawan');
+
      // simpan presensi karyawan
      Route::get('/site-karyawan-145/create-absensi',[SiteKaryawanController::class, 'form_absensi'])
      ->name('tambah-data-absensi');
