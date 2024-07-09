@@ -57,7 +57,7 @@ class DataBarangBaruController extends Controller
     {   
         $aturan = 
         [
-            'for_nama_barang'           => 'required',
+            'for_nama_barang'           => 'required|unique:data_masuk,nama_barang',
             'for_kode_barang'           => 'required|unique:data_masuk,kd_barang',
 
         ];
@@ -65,7 +65,7 @@ class DataBarangBaruController extends Controller
         $messages =  
         [
              'required' => 'Wajib Diisi',
-             'unique'   => 'tidak boleh ada kode yang sama',   
+             'unique'   => 'Kode dan nama barang sudah ada!',   
         ];
 
         $validator = Validator::make($request->all(), $aturan, $messages);

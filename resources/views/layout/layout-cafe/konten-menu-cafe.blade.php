@@ -12,7 +12,7 @@
         <ul  style="gap: 7px; font-size:12px;" class="navbar-nav me-auto mb-2 mb-lg-0">
            
             <li class="nav-item">
-            <a class="nav-link  active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page"  href="{{url('cafe145/master-menu/invoice')}}"><span><i class="fa-solid fa-file"></i></span>Invoice</a>
+            <a class="nav-link  active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page"  href="{{url('cafe145/master-menu/invoice')}}"><span><i class="fa-solid fa-file"></i></span>Cetak Invoice</a>
             </li>
         </ul>
         </div>

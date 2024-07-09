@@ -29,15 +29,6 @@
                                             onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
                                             <i class="fa-solid fa-trash" style="color: #ed0707;"></i>
                                         </a>
-                                        </td>
-                                        <td style="width: 15px;">
-                                        <a href="{{route('ubah-password', ['id' => $d->id])}}" class="btn" 
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
-                                            <i class="fa-solid fa-unlock-keyhole" style="color: #74C0FC;"></i>
-                                        </a>
-                                        </td>
-                                      
-                                
                                         </tr>
                                     @endforeach
                                   

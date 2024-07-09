@@ -1,11 +1,7 @@
 .card-body .navbar .container-fluid .collapse ul li a {
     color: blue;
 } 
-.card-body .navbar .container-fluid .navbar-menu ul li a:hover {
-    color: blue;
-    font-size: 17px;
-    transition: 0.7s;
-} 
+
 
 .title-add-user{
     background-color: blue;
@@ -23,3 +19,18 @@
 .table-target thead tr th {
     font-size: 12px;
 }
+@media (max-width: 375px) { 
+    .navbar-menu ul {
+        display: flex;
+        flex-direction: row;
+        font-size: 8px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-menu ul li{
+        background-color:aqua;
+        border-radius: 5px;
+        color: white;
+    }
+ }

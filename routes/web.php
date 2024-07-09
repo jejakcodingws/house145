@@ -19,6 +19,7 @@ use App\Http\Controllers\SiteKaryawanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LihatJadwalSesuaiBulanController;
 use App\Http\Controllers\AbsenController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
 
+    Route::get('Ubah-pass',[UserManagemantController::class, 'ubahPass'])
+    ->name('ubah-pass');
      // user managemant
      Route::get('/User-managemant',[UserManagemantController::class, 'index'])
      ->name('user-manage');
@@ -48,13 +51,6 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      ->name('simpan-users');
      Route::get('User-managemant/delete-user/{id}',[UserManagemantController::class, 'destroy'])
      ->name('delete-user');
-     Route::get('User-managemant/ubah-password/{id}',[UserManagemantController::class, 'updatePasswordRoute'])
-     ->name('ubah-password');
-
-     Route::post('User-managemant/simpan-password',[UserManagemantController::class, 'simpanUpdatePassword'])
-     ->name('simpan-password');
-
-     
 
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])

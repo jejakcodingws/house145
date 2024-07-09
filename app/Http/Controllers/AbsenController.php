@@ -21,24 +21,26 @@ class AbsenController extends Controller
     
         // Fetch dataAbsen with filtering by today's date and include shift column from jadwal_absensi
         $dataAbsen = DB::select("
-            SELECT 
-                data_karyawan.nik_karyawan, 
-                data_karyawan.nama, 
-                absensi.hari, 
-                absensi.id, 
-                absensi.jam_masuk, 
-                absensi.latitude, 
-                absensi.longitude, 
-                absensi.jam_keluar, 
-                absensi.keterangan_absen, 
-                absensi.status_absen, 
-                absensi.device_type,
-                jadwal_absensi.shift
-            FROM data_karyawan
-            INNER JOIN absensi ON data_karyawan.nik_karyawan = absensi.nik_karyawan
-            INNER JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan  WHERE DATE(absensi.jam_masuk) = ?
-        ", [$today]);
-    
+        SELECT 
+            data_karyawan.nik_karyawan, 
+            data_karyawan.nama, 
+            absensi.hari, 
+            absensi.id, 
+            absensi.jam_masuk, 
+            absensi.latitude, 
+            absensi.longitude, 
+            absensi.jam_keluar, 
+            absensi.keterangan_absen, 
+            absensi.status_absen, 
+            absensi.device_type,
+            jadwal_absensi.shift
+        FROM data_karyawan
+        INNER JOIN absensi ON data_karyawan.nik_karyawan = absensi.nik_karyawan
+        LEFT JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan
+                                  AND DATE(absensi.jam_masuk) = jadwal_absensi.tgl_bln_thn
+                                  AND jadwal_absensi.shift IS NOT NULL  -- Filter untuk shift yang tidak NULL
+        WHERE DATE(absensi.jam_masuk) = ?
+    ", [$today]);
         // Update keterangan_absen if jam_keluar is not filled
         foreach ($dataAbsen as $absen) {
             if (is_null($absen->jam_keluar)) {
@@ -132,17 +134,19 @@ class AbsenController extends Controller
                     // Create a new entry with jam_masuk
 
                     $tanggalToday = date('Y-m-d H:i:s');
+                    $current_date = date('Y-m-d'); // Mengambil tanggal saat ini
 
                     $insert = AbsensiKaryawanModel::create([
                         'hari' => $current_day_indonesia, // Mengisi kolom hari secara otomatis dengan nama hari dalam bahasa Indonesia
                         'nik_karyawan' => $request->for_nik_karyawan,
                         'jam_masuk'     => date('Y-m-d H:i:s'),
-                        'absen_kapan'   => $tanggalToday,
                         'keterangan_absen' => $keterangan_absen,
                         'status_absen' => $status_absen,
                         'latitude' => $request->input('latitude'),
                         'longitude' => $request->input('longitude'),
                         'device_type' => $request->input('device_type'),
+                        'absen_kapan'   => $tanggalToday,
+                        'created_at'   => $tanggalToday,
                    
 
                     ]);

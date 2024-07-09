@@ -59,7 +59,7 @@
                                     </div>
                                     </div>
 
-                                    <div class="col-lg-3 col-6">
+                                    <!-- <div class="col-lg-3 col-6">
                                     <div class="small-box bg-info">
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -70,6 +70,12 @@
                                     <p>Pemasukan Bulanan</p>
                                     </div></a>
                                     </div>
+                                    </div> -->
+
+                                    <div>
+                                        <p>
+                                            Laporan bulanan
+                                        </p>
                                     </div>
 
                         

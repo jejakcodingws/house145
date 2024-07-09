@@ -12,7 +12,7 @@
                                 </div>
                                 </a>
                                 <div class="card-body">
-                                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <nav class="navbar navbar-expand-lg  bg-light">
                                     <div class="container-fluid">
                                         <div class="navbar-menu navbar-collapse" id="navbarSupportedContent">
                                         <ul style="gap: 5px;" class="navbar-nav me-auto mb-2  navbar-list">
@@ -24,8 +24,8 @@
                                         </li>
                                         <li class="nav-item">
                                         <a href="{{ route('data-user') }}" class=" fw-bold nav-link {{ request()->is('User-managemant/data-users') ? 'bg-success' : '' }}">
-                                            <span><i class="fa-solid fa-user-plus"></i></span>    
-                                            Data User Login
+                                            <span><i class="fa-solid fa-eye"></i></span>    
+                                            Lihat Data User
                                         </a>
                                         </li>
                                             <li class="nav-item"   data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
