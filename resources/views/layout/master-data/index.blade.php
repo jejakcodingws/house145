@@ -4,35 +4,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TIMS</title>
+  <title>Sistem Informasi Kantor</title>
+  
 
   <!-- Google Font: Source Sans Pro -->
+  <link rel="shortcut icon" href="{{asset('img/logo145.jpg')}}" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css/')}}">
-  <!-- Ionicons -->
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- JQVMap -->
+
+  <!-- bootstrap 5.0 -->
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.css/')}}">
+
+  <!-- tailwind -->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-xodZBntMqpLZRrs+eumExiwqYfNYq1c+9z1P2RI7UVdJGnJ/Q0c1HfC3J60Q91ZL" crossorigin=""/>
+
+
   <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
-
-    <!-- bootstrap 5.0 -->
-    <link rel="stylesheet" href="{{asset('plugins/bootstrap-5.0/css/bootstrap.min.css/')}}">
-  
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <!-- asset-tambahan -->
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
-
+  <link rel="stylesheet" href="{{asset('asset-tambahan/style-user-managemant.css')}}">
+  <link rel="stylesheet" href="{{asset('asset-tambahan/style_site_karyawan.css')}}">
+  <link rel="stylesheet" href="{{asset('asset-tambahan/style-laporan.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -46,15 +45,21 @@
 <!-- konten sidebar kiri  -->
 @include('layout/sidebar-kiri')
 
+
+  <!-- Content Wrapper. Contains page content -->
   <!-- content dashboard -->
+  @include('layout/master-data/konten-master-data')
 
-<!-- master data menu -->
+<div>
+@yield('konten-site-karyawan-blade')
+</div>
+<div>
+@yield('konten-dashboard-absen')
+</div>
 
-@include('layout/master-data/konten-master-data')
 
-
-
-@include('layout/footer')
+  <!-- /.content-wrapper -->
+@include('layout.footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -96,17 +101,23 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
+<!-- javascript site karyawan pada jadwal -->
+<script src="{{asset('asset-tambahan/js_site_karyawan.js')}}"></script>
+
+<script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-4P7vnWW0Pf5iQmAn1ElgRXNpt+Fqq43sYY4h/C6T8bQ/OQs4Eaw1URTzAiTzJmxg" crossorigin=""></script>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 <!-- fontawesome -->
 <script src="{{asset('assets/plugins/fontawesome-free/js/all.min.js')}}"></script>
 
-<script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
+
 <!-- Your existing scripts are above this line -->
 
 
-
 <!-- Your existing scripts are below this line -->
-
 
 
 </body>

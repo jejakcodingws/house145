@@ -12,7 +12,6 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Delete User</th>
-                                        <th scope="col">Update User</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -28,12 +27,6 @@
                                         <a href="{{route('delete-user', ['id' => $d->id])}}" class="btn" 
                                             onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
                                             <i class="fa-solid fa-trash" style="color: #ed0707;"></i>
-                                        </a>
-                                        </td>
-                                        <td style="width: 15px;">
-                                        <a href="{{route('delete-user', ['id' => $d->id])}}" class="btn" 
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus : {{$d-> name}} ?')">
-                                            <i class="fa-regular fa-trash-can"></i>
                                         </a>
                                         </td>
                                         </tr>

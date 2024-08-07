@@ -11,7 +11,7 @@
                 @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
-                <form action="{{ route('simpan-update-password',['id' => $dataUser[0]->id ] )}}]" method="POST">
+                <form action="{{ route('simpan-update-user', ['id' => $dataUser->id]) }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="old_password">Old Password</label>

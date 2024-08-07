@@ -13,7 +13,7 @@ class UserManagemantController extends Controller
     public function index(){
         $datakaryawan = SiteKaryawanModel::all();
         $datauser = User::where('status', 1)->get();
-        return view('layout/user-managemant/index', compact('datauser','datakaryawan'));
+        return view('layout/user-managemant/data-user', compact('datauser','datakaryawan'));
     }
 
     function create(){
@@ -59,7 +59,7 @@ class UserManagemantController extends Controller
             ]);
     
             if($insert) {
-                return redirect()->route('add-users')
+                return redirect()->route('user-manage')
                 ->with('success', 'Success add user new');
             }
         }
@@ -67,28 +67,34 @@ class UserManagemantController extends Controller
         }catch (\Throwable $th) 
         { 
             return redirect()
-            ->route('add-users')
-            ->with('danger', $th->getMessage());
-        }
-    }
-
-    function destroy($id){
-        try {
-            $update = User::where(['id' => $id])->update([
-                'status' => 0,
-            ]);
-    
-            if($update) {
-                return redirect()
-                ->route('user-manage')
-                ->with('success', 'User berhasil di hapus');
-            }
-        }
-        catch (\Throwable $th) 
-        { 
-            return redirect()
             ->route('user-manage')
             ->with('danger', $th->getMessage());
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            // Mencari user berdasarkan ID
+            $user = User::find($id);
+            
+            // Memastikan user ditemukan
+            if (!$user) {
+                return redirect()->route('user-manage')
+                    ->with('danger', 'User tidak ditemukan');
+            }
+    
+            // Menghapus user secara permanen
+            $user->delete();
+    
+            return redirect()->route('user-manage')
+                ->with('success', 'User berhasil dihapus secara permanen');
+        } catch (\Throwable $th) {
+            return redirect()->route('user-manage')
+                ->with('danger', $th->getMessage());
+        }
+    }
+
+
+
 }

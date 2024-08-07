@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-  @php
+    @php
       $totalPemasukan = 0;
     @endphp
  @foreach ($dataLaporan as $dL)
@@ -31,6 +31,8 @@
       <th colspan="3" style="background-color:aqua; font-size:16px;">Total</th>
       <td class="bg-primary fw-bolder">{{'Rp' . number_format ($totalPemasukan, 0, ',', '.')}}</td>
     </tr>
+   
   </tbody>
+  
 </table>
 @endsection

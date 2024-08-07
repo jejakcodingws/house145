@@ -9,6 +9,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <!-- Font Awesome -->
+  <link rel="shortcut icon" href="{{asset('img/logo145.jpg')}}" type="image/x-icon">
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css/')}}">
 
   <!-- bootstrap 5.0 -->

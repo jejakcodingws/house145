@@ -49,7 +49,7 @@ class DataBarangBaruController extends Controller
         $barang = DataBarangMasukModel::orderBy('id','desc')->get();
         $today      = Carbon::now()->toDateString();
         $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
-        return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 
+        return view('layout/master-data/index',compact('barang','dataToday', 
         'dataTable','datapenghasilan','formatIncome','formatIncomeTahun','dataPenghasilanKemarin','targetPenghasilan'));
     }
 
@@ -72,10 +72,11 @@ class DataBarangBaruController extends Controller
         $validator = Validator::make($request->all(), $aturan, $messages);
        try {
         
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect()
-            ->route('tambah-data-baru')
-            ->withErrors($validator)->withInput();
+                ->back() // Mengarahkan kembali ke halaman yang sama
+                ->withErrors($validator)
+                ->withInput();
         }else{
             $insert = DataBarangMasukModel::create([
                 'Kategory'              => strtoupper($request -> for_kategory_barang),
@@ -90,7 +91,7 @@ class DataBarangBaruController extends Controller
             ]);
     
             if($insert) {
-                return redirect()->route('tambah-data-baru')
+                return redirect()->route('master-data')
                 ->with('success', 'berhasil tambah barang baru');
             }
         }

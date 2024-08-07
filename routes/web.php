@@ -52,6 +52,12 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
      Route::get('User-managemant/delete-user/{id}',[UserManagemantController::class, 'destroy'])
      ->name('delete-user');
 
+     Route::get('User-managemant/update-user/{id}',[UserManagemantController::class, 'update'])
+     ->name('update-user');
+
+     Route::post('User-managemant/update-user/{id}',[UserManagemantController::class, 'simpan_update'])
+     ->name('simpan-update-user');
+
     //  route target penghasilan
     Route::post('/simpan/data/target',[TargetPenghasilanController::class, 'store'])
     ->name('simpan-target');

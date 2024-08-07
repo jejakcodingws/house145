@@ -67,6 +67,8 @@ class LaporanController extends Controller
 
     function Rabsensi(Request $request) {
         $bulan = $request->input('bulan');
+        $jamMasuk = $request->input('jam_masuk'); // Menambahkan input jam masuk
+        $absenKapan = $request->input('absen_kapan'); // Menambahkan input untuk absen kapan
     
         $query = "
             SELECT absensi.nik_karyawan, absensi.absen_kapan, absensi.hari, absensi.jam_masuk, absensi.jam_keluar, absensi.status_absen, absensi.keterangan_absen, data_karyawan.nama, 
@@ -76,16 +78,12 @@ class LaporanController extends Controller
             INNER JOIN jadwal_absensi ON data_karyawan.nik_karyawan = jadwal_absensi.nik_karyawan
         ";
     
-        $parameters = [];
-        if ($bulan) {
-            $query .= " WHERE MONTH(absensi.jam_masuk) = ? ";
-            $parameters[] = $bulan;
-        }
+      
+        $dataAbsensi = DB::select($query);
     
-        $dataAbsensi = DB::select($query, $parameters);
-    
-        return view('layout/laporan/laporan-absensi/kontenRabsensi', compact('dataAbsensi', 'bulan'));
+        return view('layout/laporan/laporan-absensi/kontenRabsensi', compact('dataAbsensi', 'bulan', 'jamMasuk', 'absenKapan'));
     }
+    
 }
 
 

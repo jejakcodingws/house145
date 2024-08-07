@@ -22,12 +22,7 @@
                                             Add user login
                                         </a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a href="{{ route('data-user') }}" class=" fw-bold nav-link {{ request()->is('User-managemant/data-users') ? 'bg-success' : '' }}">
-                                            <span><i class="fa-solid fa-eye"></i></span>    
-                                            Lihat Data User
-                                        </a>
-                                        </li>
+          
                                             <li style="cursor:pointer;" class="nav-item"   data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
                                             <a class="nav-link fw-bold">
                                             <span><i class="fa-solid fa-money-bill-trend-up"></i></span>    

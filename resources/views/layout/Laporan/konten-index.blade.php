@@ -1,7 +1,8 @@
 @extends('layout/site-karyawan/index')
 
 @section ('konten-site-karyawan-blade')
-<div class="content-wrapper section-laporan">
+<div 
+style="background-color:azure" class="content-wrapper section-laporan">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="card shadow mb-4">
@@ -45,7 +46,7 @@
                                     </div></a>
                                     </div>
                                     </div>
-
+<!-- 
                                     <div class="col-lg-3 col-6">
                                     <div class="small-box bg-info">
                                     <div class="icon">
@@ -57,7 +58,7 @@
                                     <p>Laporan Absensi</p>
                                     </div></a>
                                     </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- <div class="col-lg-3 col-6">
                                     <div class="small-box bg-info">
@@ -72,13 +73,6 @@
                                     </div>
                                     </div> -->
 
-                                    <div>
-                                        <p>
-                                            Laporan bulanan
-                                        </p>
-                                    </div>
-
-                        
                                     </div>
                                     
                                                                     </div>

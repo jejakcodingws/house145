@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistem Informasi Kantor</title>
   
-
+  <link rel="shortcut icon" href="{{asset('img/logo145.jpg')}}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <!-- Font Awesome -->
