@@ -1,7 +1,7 @@
 @extends('layout/site-karyawan/index')
 
 @section ('konten-site-karyawan-blade')
-<div class="content-wrapper">
+<div class="content-wrapper section-laporan">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="card shadow mb-4">

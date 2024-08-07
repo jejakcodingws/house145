@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
   <link rel="stylesheet" href="{{asset('asset-tambahan/style-user-managemant.css')}}">
   <link rel="stylesheet" href="{{asset('asset-tambahan/style_site_karyawan.css')}}">
+  <link rel="stylesheet" href="{{asset('asset-tambahan/style-laporan.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

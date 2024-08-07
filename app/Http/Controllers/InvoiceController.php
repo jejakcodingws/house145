@@ -64,6 +64,7 @@ class InvoiceController extends Controller
                 'jumlah_reservasi'          => $request -> for_jumlah,
                 'nominal_per_orang'         => $request -> for_nominal,
                 'status'                    => $request -> for_status,
+                'nik_karyawan'              => Auth::user()->nik_karyawan,
             ]);
             if($insert) {
                 return redirect()->route('menu-invoice')

@@ -45,8 +45,8 @@ class DataBarangBaruController extends Controller
         $targetPenghasilan = TargetPenghasilanModel::whereMonth('bulan', $bulanIni)->get();
 
         // Ambil data hanya jika tanggal pada kolom 'dibuat_kapan' sama dengan tanggal hari ini
-        $dataTable  = DataBarangMasukModel::paginate(10);
-        $barang = DataBarangMasukModel::all();
+        $dataTable  = DataBarangMasukModel::orderBy('id','desc')->paginate(10);
+        $barang = DataBarangMasukModel::orderBy('id','desc')->get();
         $today      = Carbon::now()->toDateString();
         $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
         return view('layout/master-data/tambah-data-baru',compact('barang','dataToday', 
@@ -59,6 +59,7 @@ class DataBarangBaruController extends Controller
         [
             'for_nama_barang'           => 'required|unique:data_masuk,nama_barang',
             'for_kode_barang'           => 'required|unique:data_masuk,kd_barang',
+            'for_kategory_barang'       => 'required'
 
         ];
 

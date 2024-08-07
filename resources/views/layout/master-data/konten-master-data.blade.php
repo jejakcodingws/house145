@@ -7,7 +7,6 @@
             </div>
 @include('flash-message')
 
-
             <div class="row">
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
@@ -110,6 +109,9 @@
             </div>
 
             </div>
+
+            @yield('konten-update-data-barang')
+            
             <div class="card-footer">
             <div class="row">
             <div 
@@ -303,7 +305,7 @@
             this.value = 'Rp ' + rupiah;
         });
     });
-</script>
+</>
 
 
 <!-- end modal pendapatan keluar -->

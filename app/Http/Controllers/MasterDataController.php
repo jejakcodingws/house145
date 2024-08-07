@@ -45,8 +45,8 @@ class MasterDataController extends Controller
     $formatIncome = number_format($totalPendapatanBulanIni, 2);
     $formatIncomeTahun = number_format($totalPendapatanTahunIni, 2);
 
-    $dataTable  = DataBarangMasukModel::paginate(10);
-    $barang     = DataBarangMasukModel::all();
+    $dataTable  = DataBarangMasukModel::orderBy('id','desc')->paginate(5);
+    $barang = DataBarangMasukModel::orderBy('id','desc')->get();
     $today      = Carbon::now()->toDateString();
     $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
     return view('layout/master-data/index',
@@ -96,6 +96,52 @@ class MasterDataController extends Controller
             ->route('master-data')
             ->with('danger', $th->getMessage());
         }
+    }
+
+
+    function update(){
+
+
+         // Ambil tanggal hari ini
+    $tanggal_kemarin = carbon::yesterday()->toDateString();
+    $tanggal_hari_ini = Carbon::today()->toDateString();
+
+      // Mendapatkan bulan dan tahun saat ini
+      $currentMonth = Carbon::now()->month;
+      $currentYear = Carbon::now()->year;
+
+    $bulanBerjalan = Carbon::now()->month();
+
+    // Ambil data hanya jika tanggal pada kolom 'dibuat_kapan' sama dengan tanggal hari ini
+    $dataPenghasilanKemarin = PenghasilanModel::whereDate('tanggal', $tanggal_kemarin)->get();
+    $datapenghasilan = PenghasilanModel::whereDate('tanggal', $tanggal_hari_ini)->get();
+    
+
+    // panggil data target model perbulan ini
+    $bulanIni = Carbon::now()->format('m');
+    $targetPenghasilan = TargetPenghasilanModel::whereMonth('bulan', $bulanIni)->get();
+    // total pendapatan sebulan 
+     // Menjumlahkan nilai dari kolom 'pemasukan' di tabel 'penghasilan' berdasarkan bulan dan tahun saat ini
+    $totalPendapatanBulanIni = PenghasilanModel::whereYear('dibuat_kapan', $currentYear)
+                                         ->whereMonth('dibuat_kapan', $currentMonth)
+                                         ->sum('pemasukan');
+
+    $totalPendapatanTahunIni = PenghasilanModel::whereYear('dibuat_kapan', $currentYear)
+                                         ->sum('pemasukan');
+
+
+    $formatIncome = number_format($totalPendapatanBulanIni, 2);
+    $formatIncomeTahun = number_format($totalPendapatanTahunIni, 2);
+
+    $dataTable  = DataBarangMasukModel::orderBy('id','desc')->paginate(5);
+    $barang = DataBarangMasukModel::orderBy('id','desc')->get();
+    $today      = Carbon::now()->toDateString();
+    $dataToday  = DataBarangMasukModel::whereDate('tanggal_dibuat', $today)->count();
+    
+        return view('layout/master-data/update-data-barang', 
+        compact('barang','dataToday', 
+        'dataTable','datapenghasilan',
+        'dataPenghasilanKemarin','formatIncome','formatIncomeTahun','targetPenghasilan'));
     }
 
 

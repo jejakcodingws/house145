@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner']], function(){
 
 
 Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], function(){
+
     Route::get('/cafe145/master-menu',[CafeController::class, 'index'])
     ->name('master-menu-cafe');
     
@@ -89,7 +90,7 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::get('/cafe145/master-menu/invoice/simpanpdf/{id}',[InvoiceController::class, 'show'])
     ->name('simpanpdf');
     
-    Route::get('/cafe145/master-menu/invoice/form-input/',[InvoiceController::class, 'create'])
+    Route::get('/cafe145/master-menu/invoice/form-input',[InvoiceController::class, 'create'])
     ->name('form-invoice');
     
     Route::post('/cafe145/master-menu/invoice/form-input/simpan',[InvoiceController::class, 'store'])
@@ -103,6 +104,10 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     Route::get('/site-karyawan-145/search',[SiteKaryawanController::class, 'search'])
     ->name('search');
         
+
+
+
+
     //    route site karyawan
     Route::get('/site-karyawan-145',[SiteKaryawanController::class, 'index'])
     ->name('site-karyawan');
@@ -112,10 +117,18 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     ->name('data-karyawan');
     Route::get('/site-karyawan-145/create',[SiteKaryawanController::class, 'create'])
     ->name('tambah-karyawan');
+ 
     // update data karyawan 
-    Route::get('/site-karyawan-145/data-karyawan/update/{id}',[SiteKaryawanController::class, 'update'])
-    ->name('update-data-karyawan');
-    Route::post('/site-karyawan-145/data-karyawan/update/{id}',[SiteKaryawanController::class, 'simpan-update'])
+    Route::get('/site-karyawan-145/data-karyawan/update/{nik_karyawan}',[SiteKaryawanController::class, 'update'])
+    ->name('update-data-karyawan')
+    ->where('id','[0-9]+');
+
+    Route::get('/site-karyawan-145/data-karyawan/hapus/{id}',[SiteKaryawanController::class, 'destroy'])
+    ->name('hapus-data-karyawan')
+    ->where('id','[0-9]+');
+
+
+    Route::post('/site-karyawan-145/data-karyawan/update/{nik_karyawan}',[SiteKaryawanController::class, 'simpan_update'])
     ->name('simpan-update-data-karyawan');
 
      // simpan presensi karyawan
@@ -177,8 +190,9 @@ Route::group(['middleware' => ['auth','CekLevel:admin,owner,karyawan']], functio
     
     // route pendapatan 
     Route::post('/simpan-pendapatan',[PendapatanController::class, 'store'])
-    ->name('simpan-pendapatan')
-   ;
+    ->name('simpan-pendapatan');
+
+ 
 
    
 });
@@ -201,6 +215,8 @@ Route::post('/login',[LoginController::class, 'authenticate'])
 
 
 
+
+?>
 
 
 

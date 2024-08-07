@@ -32,10 +32,10 @@
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <!-- asset-tambahan -->
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
 
   <!-- Navbar -->
   @include('layout/navbar-atas')
@@ -102,6 +102,7 @@
 
 <script src="{{asset('plugins/bootstrap-5.0/js/bootstrap.min.js')}}"></script>
 <!-- Your existing scripts are above this line -->
+
 
 
 <!-- Your existing scripts are below this line -->

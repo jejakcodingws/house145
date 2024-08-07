@@ -10,5 +10,15 @@ class SiteKaryawanModel extends Model
     use HasFactory;
     protected $table = 'data_karyawan';
     public $timestamps = false;
-    protected $guarded=['id'];
+
+    protected $fillable = [
+        'nik_karyawan',
+        'nama',
+        'email',
+        'aktif_kerja',
+        'tempat_tanggal_lahir',
+        'status_karyawan',
+        'area_kerja',
+        'alamat_domisili',
+    ];
 }

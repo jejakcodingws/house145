@@ -1,5 +1,7 @@
+<div >
 
-                <div class="content-wrapper">
+    <div>
+                <div class="content-wrapper  section-dashboard">
                     <!-- Content Header (Page header) -->
                     <div class="content-header">
                     <div class="container-fluid">
@@ -68,12 +70,8 @@
                     </div>
                 </div>
 
-
-                <div class="col img-dashboard">
-                    <img src="{{asset('img/dashboard.jpeg')}}" alt="">
                 </div>
-                </div>
-                    </div><!-- /.container-fluid -->
+            </div><!-- /.container-fluid -->
     </div>
 </div>
   

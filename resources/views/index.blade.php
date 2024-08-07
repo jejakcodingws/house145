@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
   <!-- asset-tambahan -->
   <link rel="stylesheet" href="{{asset('asset-tambahan/style.css')}}">
+  <link rel="stylesheet" href="{{asset('asset-tambahan/dashboard-style.css')}}">
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

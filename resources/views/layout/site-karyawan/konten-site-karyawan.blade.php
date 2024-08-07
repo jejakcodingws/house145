@@ -1,9 +1,9 @@
 @extends('layout/site-karyawan/index')
 @section ('konten-site-karyawan')
-<div class="content-wrapper">
+<div class="content-wrapper section-site-karyawan">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="card shadow mb-4">
+      <div class=" mb-4">
         @include('layout/flash-message')
                                 <a href="{{route('dashboard-karyawan')}}" >
                                 <div class="card-header py-3">
@@ -20,14 +20,14 @@
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                         </button>
-                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <div class="collapse navbar-collapse navbar-site-karyawan" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
                                             <a class="nav-link active {{ request()->is('site-karyawan-145') ? 'bg-success' : '' }}  " aria-current="page" href="{{route('dashboard-karyawan')}}"><span><i class="fa-solid fa-house"></i></span>Home</a>
                                             </li>
                                             @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
                                             <li class="nav-item">
-                                            <a class="nav-link active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-karyawan')}}"><span><i class="fa-solid fa-user-plus"></i></span>Data Karyawan</a>
+                                            <a class="nav-link active {{ request()->is('site-karyawan-145/create') ? 'bg-success' : '' }} " aria-current="page" href="{{route('tambah-karyawan')}}"><span><i class="fa-solid fa-user-plus"></i></span>Add Data Karyawan</a>
                                             </li>
                                             @endif
                                             @if(auth()->user()->level=="admin" || auth()->user()->level=="owner" )
@@ -94,6 +94,7 @@
     @yield('konten-dashboard-site-karyawan')
     @yield('konten-data-karyawan')
     @yield('konten-hasil-pencarian')
+    @yield('konten-update-data-karyawan')
     </div>
 </div>
      

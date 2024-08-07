@@ -157,7 +157,7 @@ class SiteKaryawanController extends Controller
     }
 
     function data_karyawan(){
-        $datakaryawan = SiteKaryawanModel::all();
+        $datakaryawan = SiteKaryawanModel::where('status', 1)->get();
         return view('layout.site-karyawan.data-karyawan',compact('datakaryawan'));
     }
 
@@ -184,4 +184,85 @@ class SiteKaryawanController extends Controller
         
         return view('layout.site-karyawan.hasil-pencarian',compact('karyawan'));
     }
+
+    public function update($nik_karyawan)
+    {
+        // Mencari karyawan berdasarkan NIK
+        $datakaryawan = SiteKaryawanModel::where('nik_karyawan', $nik_karyawan)->first();
+    
+        // Memastikan karyawan ditemukan
+        if (!$datakaryawan) {
+            return redirect()->route('data-karyawan') // ganti dengan rute yang sesuai
+                ->with('danger', 'Karyawan tidak ditemukan');
+        }
+    
+        // Mengirimkan data karyawan ke view
+        return view('layout.site-karyawan.update-data-karyawan', compact('datakaryawan'));
+    }
+
+    public function simpan_update(Request $request, string $nik_karyawan) {
+        // Aturan validasi
+        $aturan = [
+            'for_nik_karyawan' => 'required',
+            'for_nama_karyawan' => 'required|string|max:255',
+            // Tambahkan aturan validasi lainnya sesuai kebutuhan
+        ];
+    
+        // Validasi input
+        $validator = Validator::make($request->all(), $aturan);
+    
+        if ($validator->fails()) {
+            return redirect()
+                ->route('update-data-karyawan', ['nik_karyawan' => $nik_karyawan])
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        // Mencari dan memperbarui karyawan
+        $karyawan = SiteKaryawanModel::where('nik_karyawan', $nik_karyawan)->first();
+    
+        if (!$karyawan) {
+            return redirect()->route('data-karyawan')
+                ->with('danger', 'Karyawan tidak ditemukan');
+        }
+    
+        // Update data
+        $karyawan->update([
+            'nik_karyawan' => strtoupper($request->for_nik_karyawan),
+            'nama' => $request->for_nama_karyawan,
+            'email' => $request->for_email_karyawan,
+            'aktif_kerja' => $request->for_tgl_mulai_kerja,
+            'tempat_tanggal_lahir' => $request->for_tgl_lahir_karyawan,
+            'status_karyawan' => $request->for_status_karyawan,
+            'area_kerja' => $request->for_departmant_karyawan,
+            'alamat_domisili' => $request->for_alamat_karyawan,
+        ]);
+    
+        return redirect()->route('data-karyawan')
+            ->with('success', 'Data karyawan berhasil diperbarui!');
+    } 
+
+    public function destroy($id)
+    {
+        try {
+                $update = SiteKaryawanModel::
+                where(['id' => $id])->update([
+                    'status' => 0,
+                ]);
+        
+                if($update) {
+                    return redirect()
+                    ->route('data-karyawan')
+                    ->with('success', 'berhasil hapus data karyawan');
+                }
+            }
+            catch (\Throwable $th) 
+            { 
+                return redirect()
+                ->route('data-karyawan')
+                ->with('danger', $th->getMessage());
+            }
+        
+    }
+
 }

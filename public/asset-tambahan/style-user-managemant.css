@@ -1,15 +1,11 @@
 .card-body .navbar .container-fluid .collapse ul li a {
     color: blue;
+    font-size: 13px;
 } 
-
-
-.title-add-user{
-    background-color: blue;
-    height: 3vh;
-    color: white;
-    width: auto;
- 
+.navbar-menu ul li a {
+    font-size: 12px;
 }
+
 
 .table-target {
     font-size: 13px;
@@ -34,3 +30,5 @@
         color: white;
     }
  }
+
+ 

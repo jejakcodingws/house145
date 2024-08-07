@@ -2,3 +2,16 @@
     background-color: #007bff; /* Contoh warna, bisa disesuaikan */
     color: white;
 }
+
+
+.card-site-karyawan .detail-site-karyawan span {
+    font-size: 10vh;
+    color: black;
+}
+
+.card-site-karyawan .detail-site-karyawan p {
+    font-size: 4vh;
+    color: black;
+    text-align: center;
+    font-family:cursive;
+}

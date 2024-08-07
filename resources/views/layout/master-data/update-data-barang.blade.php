@@ -1,7 +1,7 @@
 @extends('layout/master-data/index')
 
-@section('konten-tambah-data-baru')
-<h6 class="text-center">Tambah Barang Baru</h6>
+@section('konten-update-data-barang')
+<h6 class="text-center">Update Barang Baru</h6>
 <form id="form-tambah-data" class="tambah-data" action="{{route('simpan-data-baru')}}" method="post">
         @csrf
             <div class="mb-3" >

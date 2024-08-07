@@ -10,7 +10,9 @@
       <th scope="col">NAMA</th>
       <th scope="col">EMAIL</th>
       <th scope="col">AKTIF KERJA</th>
-      <th scope="col">STATUS KARYAWAN</th>
+      <th scope="col">STATUS NIKAH</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -22,8 +24,21 @@
       <td>{{$d -> email}}</td>
       <td>{{$d -> aktif_kerja}}</td>
       <td>{{$d -> status_karyawan}}</td>
+      
+      <td>
+      <a href="{{route('update-data-karyawan', ['nik_karyawan' => $d->nik_karyawan]) }}" >
+        <i class="fa-solid fa-gears" style="color: #0f89e6;"></i></td>
+      </a>
+      
+      <td>
+        <a href="{{route('hapus-data-karyawan', ['id' => $d->id])}}">
+        <i class="fa-regular fa-trash-can" style="color: #ba2626;"></i>
+        </a>
+      
+      </td>
     </tr>
     @endforeach
+   
   </tbody>
     </table>
 @endsection

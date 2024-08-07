@@ -12,14 +12,14 @@
                                 </div>
                                 </a>
                                 <div class="card-body">
-                                <nav class="navbar navbar-expand-lg  bg-light">
+                                <nav class="navbar navbar-expand-lg  ">
                                     <div class="container-fluid">
                                         <div class="navbar-menu navbar-collapse" id="navbarSupportedContent">
                                         <ul style="gap: 5px;" class="navbar-nav me-auto mb-2  navbar-list">
                                         <li class="nav-item">
                                         <a href="{{ route('add-users') }}" class=" fw-bold nav-link {{ request()->is('User-managemant/add-users') ? 'bg-success' : '' }}">
                                             <span><i class="fa-solid fa-user-plus"></i></span>    
-                                            Tambah Data users
+                                            Add user login
                                         </a>
                                         </li>
                                         <li class="nav-item">
@@ -28,7 +28,7 @@
                                             Lihat Data User
                                         </a>
                                         </li>
-                                            <li class="nav-item"   data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
+                                            <li style="cursor:pointer;" class="nav-item"   data-bs-toggle="modal" data-bs-target="#modalinputtarget" >
                                             <a class="nav-link fw-bold">
                                             <span><i class="fa-solid fa-money-bill-trend-up"></i></span>    
                                             Input Target</a>
