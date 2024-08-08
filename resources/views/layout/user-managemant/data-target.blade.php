@@ -20,7 +20,7 @@
                                             <th  scope="row">{{$loop -> iteration}}</th>
                                             <td>{{$d -> kd_target}}</td>
                                             <td>{{$d -> bulan}}</td>
-                                            <td>{{$d -> nominal_target}}</td>
+                                            <td>Rp.{{ number_format($d->nominal_target, 0, ',', '.') }}</td>
                                             <td>{{$d -> dibuat_kapan}}</td>
                                         </tr>
                                         @endforeach

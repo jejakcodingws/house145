@@ -390,7 +390,7 @@
             this.value = 'Rp ' + rupiah;
         });
     });
-</>
+</script>
 
 
 <!-- end modal pendapatan keluar -->

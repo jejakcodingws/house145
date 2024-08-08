@@ -26,7 +26,7 @@ class TargetPenghasilanController extends Controller
         [
             'target_name'           => 'required',
             'bulan_name'           => 'required',
-            'nominal_name'           => 'required',
+            'nominal_name_hidden'  => 'required',
 
         ];
 
@@ -46,7 +46,7 @@ class TargetPenghasilanController extends Controller
             $insert = TargetPenghasilanModel::create([
                 'kd_target'             => strtoupper($request -> target_name),
                 'bulan'                 => $request -> bulan_name,
-                'nominal_target'        => $request -> nominal_name,
+                'nominal_target'        => $request -> nominal_name_hidden,
                 'dibuat_kapan'          => date('Y-m-d H:i:s'),
                 'dibuat_oleh'           => Auth::user()->name,
             ]);

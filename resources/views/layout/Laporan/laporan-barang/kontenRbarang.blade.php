@@ -19,7 +19,11 @@
      <td>{{$dB -> nama_barang}}</td>
      <td>{{$dB -> stok_minimal_barang}}</td>
      <td>{{$dB -> satuan}}</td>
-     <td>{{$dB -> stok_sisa}}</td>
+     <td style="{{ $dB->stok_sisa == 0 ? 'color: red;' : 'color: green;' }} font-weight:bolder;  ">
+    {{$dB->stok_sisa}}
+    </td>
+
+
     </tr>
 @endforeach
   </tbody>

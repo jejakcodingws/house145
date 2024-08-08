@@ -90,6 +90,7 @@
             <div class="mb-3">
                 <label for="nominal_name" class="form-label">Target</label>
                 <input type="text" class="form-control" name="nominal_name" value="{{old('nominal_name')}}" id="nominal_name" placeholder="Nominal Rupiah">
+                <input type="hidden" id="nominal_name_hidden" name="nominal_name_hidden">
                 @if ($errors->has('nominal_name'))
                   <div style="background-color: blue;" class="badge text-bg-danger">{{$errors->first('nominal_name')}}</div>
                 @endif
@@ -100,6 +101,34 @@
     </div>
   </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var displayInput = document.getElementById('nominal_name');
+        var hiddenInput = document.getElementById('nominal_name_hidden');
+        
+        displayInput.addEventListener('keyup', function (e) {
+            var value = this.value.replace(/[^,\d]/g, '').toString();
+            var originalValue = value.replace(/\./g, ''); // Nilai asli tanpa format
+
+            // Update nilai asli di input tersembunyi
+            hiddenInput.value = originalValue;
+
+            var split = value.split(',');
+            var sisa = split[0].length % 3;
+            var rupiah = split[0].substr(0, sisa);
+            var ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+            
+            if (ribuan) {
+                var separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+            
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            this.value = 'Rp ' + rupiah;
+        });
+    });
+</script>
 
   
 
