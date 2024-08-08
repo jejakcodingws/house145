@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class InvoiceController extends Controller
 {
     function index (){
-        $data = Invoice::paginate(2);
+        $data = Invoice::orderBy('id','desc' )->paginate(2);
         return view('layout/layout-cafe/invoice',compact('data'));
     }
 

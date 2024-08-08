@@ -17,12 +17,14 @@
                                   
                                     @foreach($datatarget as $d)
                                         <tr>
-                                        <th  scope="row">{{$loop -> iteration}}</th>
-                                        <td>{{$d -> kd_target}}</td>
-                                        <td>{{$d -> bulan}}</td>
-                                        <td>{{$d -> nominal_target}}</td>
-                                        <td>{{$d -> dibuat_kapan}}</td>
+                                            <th  scope="row">{{$loop -> iteration}}</th>
+                                            <td>{{$d -> kd_target}}</td>
+                                            <td>{{$d -> bulan}}</td>
+                                            <td>{{$d -> nominal_target}}</td>
+                                            <td>{{$d -> dibuat_kapan}}</td>
                                         </tr>
+                                        @endforeach
+                                    </tbody>
 </table>
-                                    @endforeach
+                                    
 @endsection
